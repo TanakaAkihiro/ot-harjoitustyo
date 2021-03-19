@@ -9,4 +9,4 @@ Onnea kurssille!
 
 
 [gitlog.txt](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)  
-lisäys
+lisäys1
