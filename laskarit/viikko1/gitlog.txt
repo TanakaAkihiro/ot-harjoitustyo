@@ -1,0 +1,92 @@
+commit 22aa456b0fa0f2d05276840f25099675a23c1f33
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Fri Mar 19 12:03:21 2021 +0200
+
+    Poistettu file1.txt ja uudelleennimetty file2.txt -> file22.txt
+
+ tiedostoja/{file1.txt => file22.txt} | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 427de49ba05e0d8bbdd8b4336362becd59598aeb
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Fri Mar 19 11:58:07 2021 +0200
+
+    Luotu hakemisto tiedostoja ja sen sisälle kolme tiedostoa
+
+ tiedostoja/file1.txt | 0
+ tiedostoja/file2.txt | 0
+ tiedostoja/file3.txt | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+
+
+
+-----------------
+
+
+
+
+commit 2562d2e64d2513f76284eae212261a8197fb2c59
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 14:07:02 2021 +0200
+
+    tiedostot muokattu
+
+ eka.txt      | 1 +
+ kolmas.txt   | 2 +-
+ tiedosto.txt | 0
+ 3 files changed, 2 insertions(+), 1 deletion(-)
+
+commit ba99fad26051118c4227c8f24c4563100f650e01
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 14:04:11 2021 +0200
+
+    lisää kolmas tiedosto
+
+ kolmas.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8002b80fb12483205b4a0ada8d7d8263a7126f69
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 14:03:24 2021 +0200
+
+    tiedoston nimenmuutos
+
+ eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 788c068766336e1fef3b7c88002c3f20207329ba
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 14:02:22 2021 +0200
+
+    tiedosto luotu uudestaan
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 7844263c0980bc4fc81c081f7e91fe4f642dad79
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 14:00:05 2021 +0200
+
+    tiedosto poistettu
+
+ tiedosto.txt | 427 -----------------------------------------------------------
+ 1 file changed, 427 deletions(-)
+
+commit ebe6a68b9b88368a211c9fbc49bccab3b97cce93
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 13:57:41 2021 +0200
+
+    tiedosto muokattu
+
+ tiedosto.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 322468e6b7aa428085933953c8df9ef50cb81582
+Author: Akihiro Tanaka <akihiro.fin@icloud.com>
+Date:   Thu Mar 18 13:54:18 2021 +0200
+
+    luotu tiedosto
+
+ tiedosto.txt | 423 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 423 insertions(+)
