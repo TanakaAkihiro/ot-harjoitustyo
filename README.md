@@ -14,3 +14,9 @@ lisäys1
 ### Viikko 2
 
 [laskaritehtävät](https://github.com/TanakaAkihiro/ot-harjoitustyo/tree/master/laskarit/viikko2)
+
+
+
+## Harjoitustyön työaikakirjanpito
+
+[työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
