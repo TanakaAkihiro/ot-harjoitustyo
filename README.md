@@ -17,6 +17,7 @@ lisäys1
 
 
 
-## Harjoitustyön työaikakirjanpito
+## Harjoitustyö
+### työaikakirjanpito
 
 [työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
