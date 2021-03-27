@@ -18,6 +18,10 @@ lisäys1
 
 
 ## Harjoitustyö
+### Alustava määrittelydokumentti  
+
+[Vaatimusmäärittely](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/laskarit/alustava_maarittelydokumentti.md)
+
 ### työaikakirjanpito
 
 [työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
