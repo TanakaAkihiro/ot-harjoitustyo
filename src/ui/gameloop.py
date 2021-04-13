@@ -19,7 +19,7 @@ class Gameloop:
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ]
     
     def start(self):
@@ -31,14 +31,12 @@ class Gameloop:
 
             if self.new_block:
                 block = Block()
-                for i in block.shape:
-                    self.field[block.column+i[0]][block.row+i[1]] = 1
                 self.new_block = False
             
             if not block.movable(self.field):
                 self.new_block = True
                 self.field = block.stop(self.field)
-            elif block.movable(self.field) == "loppu":
+            elif block.movable(self.field) == "gameover":
                 break
             else:
                 self.field = block.move(self.field)

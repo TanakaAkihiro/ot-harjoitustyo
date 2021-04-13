@@ -1,5 +1,7 @@
 import pygame
-from ui.game import Gameloop
+from ui.gameloop import Gameloop
+
+
 
 def main():
     pygame.init()
