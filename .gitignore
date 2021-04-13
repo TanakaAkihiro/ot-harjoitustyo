@@ -8,9 +8,12 @@ laskarit/viikko2/maksukortti/src/tests/__pycache__/maksukortti_test.cpython-38-p
 laskarit/viikko2/unicafe/.coverage
 laskarit/viikko2/unicafe/htmlcov/
 
-src/tests/__pycache__/
 
+.vscode
+.DS_Store
+.coverage
+.pytest_cache
 htmlcov
-**/htmlcov
-htmlcov/
-*htmlcov/
+__pycache__
+*.py[cod]
+*$py.class
