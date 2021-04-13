@@ -32,16 +32,21 @@ class Gameloop:
             if self.new_block:
                 block = Block()
                 for i in block.shape:
-                    self.field[block.row][block.column] = 1
+                    self.field[block.column+i[0]][block.row+i[1]] = 1
                 self.new_block = False
             
             if not block.movable(self.field):
                 self.new_block = True
-            block.move(self.field)
+                self.field = block.stop(self.field)
+            elif block.movable(self.field) == "loppu":
+                break
+            else:
+                self.field = block.move(self.field)
             
             self.draw_field(self.field, self.screen)
 
-            self.clock.tick(60)
+            self.clock.tick(10)
+            
 
     def show_screen(self, screen):
         screen.fill((255,255,255))
