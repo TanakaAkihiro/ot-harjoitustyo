@@ -7,6 +7,11 @@ laskarit/viikko2/maksukortti/src/tests/__pycache__/maksukortti_test.cpython-38-p
 /laskarit/viikko2/unicafe/src/tests/htmlcov/
 laskarit/viikko2/unicafe/.coverage
 laskarit/viikko2/unicafe/htmlcov/
+
+__pycache__
+**/__pycache__
+__pycache__/
+**/__pycache__
 *__pycache__
 *.coverage
 **/htmlcov
