@@ -7,4 +7,5 @@ päivä | aika(h) | mitä tein
 12.04 | 2 | Poetryn ja invoken kertausta sekä projektin alustaminen
 12.04 | 3 | Koodin aloittaminen
 13.04 | 2 | Koodin muokkailua
-Yhteensä | 12 |
+13.04 | 3 | Koodin muokkailua, invoken ja pytestin lisäys
+Yhteensä | 15 |
