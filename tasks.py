@@ -8,6 +8,6 @@ def start(ctx):
 def coverage(ctx):
 	ctx.run("coverage run --branc -m pytest")
 
-@task(coverage9
+@task(coverage)
 def coverage_report(ctx):
 	ctx.run("coverage html")
