@@ -10,4 +10,5 @@ päivä | aika(h) | mitä tein
 13.04 | 3 | Koodin muokkailua, invoken ja pytestin lisäys
 17.04 | 1 | Luokkakaavion suunnittelu
 17.04 | 2 | Luokkien injektointia
-Yhteensä | 17 |
+17.04 | 2 | Koodin muokkailua
+Yhteensä | 20 |

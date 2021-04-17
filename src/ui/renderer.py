@@ -6,22 +6,24 @@ class Renderer:
         self._height = height
         self._width = width
         self._coefficient = coefficient
+        self._colors = {"White": (255,255,255), "Black": (0,0,0), "Grey": (192,192,192), "Blue": (0,0,128), "Red": (200,0,0)}
     
     def show_screen(self):
-        self._screen.fill((255,255,255))
+        self._screen.fill(self._colors["White"])
 
-        for r in range(self._height):
-            for c in range(self._width):
-                pygame.draw.rect(self._screen, (0,0,0), (220 + self._coefficient*c, 100 + self._coefficient*r, self._coefficient, self._coefficient),1)
+        for row in range(self._height):
+            for column in range(self._width):
+                pygame.draw.rect(self._screen, self._colors["Black"], (22*self._coefficient + self._coefficient*column, 10*self._coefficient + self._coefficient*row, self._coefficient, self._coefficient),1)
 
         pygame.display.flip()
     
     def draw_field(self, field):
-        for r in range(self._height):
-            for c in range(self._width):
-                pygame.draw.rect(self._screen, (192,192,192), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
-                if field[c][r] == 1:
-                    pygame.draw.rect(self._screen, (0,0,128), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
-                if field[c][r] == 2:
-                    pygame.draw.rect(self._screen, (200,0,0), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
+        for row in range(self._height):
+            for column in range(self._width):
+                square = (22*self._coefficient + self._coefficient*column, 10*self._coefficient + self._coefficient*row, self._coefficient-1, self._coefficient-1)
+                pygame.draw.rect(self._screen, self._colors["Grey"], square)
+                if field[row][column] == 1:
+                    pygame.draw.rect(self._screen, self._colors["Blue"], square)
+                if field[row][column] == 2:
+                    pygame.draw.rect(self._screen, self._colors["Red"], square)
         pygame.display.flip()
