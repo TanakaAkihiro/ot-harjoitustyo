@@ -8,4 +8,5 @@ päivä | aika(h) | mitä tein
 12.04 | 3 | Koodin aloittaminen
 13.04 | 2 | Koodin muokkailua
 13.04 | 3 | Koodin muokkailua, invoken ja pytestin lisäys
+17.04 | 1 | Luokkakaavion suunnittelu
 Yhteensä | 15 |
