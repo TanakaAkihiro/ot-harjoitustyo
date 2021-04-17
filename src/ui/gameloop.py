@@ -1,66 +1,59 @@
 import pygame
-from ui.block import Block
+from entities.block import Block
+
 
 class Gameloop:
-    def __init__(self, screen, height, width):
-        self.screen = screen
-        self.height = height
-        self.width = width
-        self.new_block = True
-        self.clock = pygame.time.Clock()
+    def __init__(self, screen, height, width, coefficient, event_queue, clock, renderer, field):
+        self._screen = screen
+        self._height = height
+        self._width = width
+        self._coefficient = coefficient
+        self._new_block = True
+        self._event_queue = event_queue
+        self._clock = clock
+        self._renderer = renderer
 
-        self.field = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ]
+        self._field = field
     
     def start(self):
-        self.show_screen(self.screen)
+        self._renderer.show_screen()
         while True:
-            for event in pygame.event.get():
+            for event in self._event_queue.get():
                 if event.type == pygame.QUIT:
                     exit()
 
-            if self.new_block:
+            if self._new_block:
                 block = Block()
-                self.new_block = False
+                self._new_block = False
             
-            if not block.movable(self.field):
-                self.new_block = True
-                self.field = block.stop(self.field)
-            elif block.movable(self.field) == "gameover":
+            if not block.movable(self._field):
+                self._new_block = True
+                self._field = block.stop(self._field)
+            elif block.movable(self._field) == "gameover":
                 break
             else:
-                self.field = block.move(self.field)
+                self._field = block.move(self._field)
             
-            self.draw_field(self.field, self.screen)
+            self._renderer.draw_field(self._field)
 
-            self.clock.tick(10)
+            self._clock.tick(10)
             
 
     def show_screen(self, screen):
         screen.fill((255,255,255))
 
-        for i in range(self.height):
-            for j in range(self.width):
-                pygame.draw.rect(screen, (0,0,0), (220 + 20*j, 100 + 20*i, 20, 20),1)
+        for r in range(self._height):
+            for c in range(self._width):
+                pygame.draw.rect(screen, (0,0,0), (220 + self._coefficient*c, 100 + self._coefficient*r, self._coefficient, self._coefficient),1)
 
         pygame.display.flip()
     
     def draw_field(self, field, screen):
-        for r in range(self.height):
-            for c in range(self.width):
-                pygame.draw.rect(screen, (192,192,192), (221 + 20*c, 101 + 20*r, 19, 19))
+        for r in range(self._height):
+            for c in range(self._width):
+                pygame.draw.rect(screen, (192,192,192), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
                 if field[c][r] == 1:
-                    pygame.draw.rect(screen, (0,0,128), (221 + 20*c, 101 + 20*r, 19, 19))
+                    pygame.draw.rect(screen, (0,0,128), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
                 if field[c][r] == 2:
-                    pygame.draw.rect(screen, (200,0,0), (221 + 20*c, 101 + 20*r, 19, 19))
+                    pygame.draw.rect(screen, (200,0,0), (221 + self._coefficient*c, 101 + self._coefficient*r, self._coefficient-1, self._coefficient-1))
         pygame.display.flip()

@@ -1,6 +1,6 @@
 import unittest
 from ui.gameloop import Gameloop
-from ui.block import Block
+from entities.block import Block
 
 class TestBlock(unittest.TestCase):
     def setUp(self):
