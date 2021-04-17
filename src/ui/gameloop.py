@@ -18,9 +18,8 @@ class Gameloop:
     def start(self):
         self._renderer.show_screen()
         while True:
-            for event in self._event_queue.get():
-                if event.type == pygame.QUIT:
-                    exit()
+            if self._handle_events() == False:
+                exit()
 
             if self._new_block:
                 block = Block()
@@ -37,3 +36,8 @@ class Gameloop:
             self._renderer.draw_field(self._field)
 
             self._clock.tick(10)
+    
+    def _handle_events(self):
+        for event in self._event_queue.get():
+            if event.type == pygame.QUIT:
+                return False
