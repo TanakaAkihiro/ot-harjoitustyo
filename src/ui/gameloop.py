@@ -14,24 +14,28 @@ class Gameloop:
         self._field = field
 
         self._new_block = True
+        self._block = None
+        
     
     def start(self):
         self._renderer.show_screen()
         while True:
-            if self._handle_events() == False:
-                exit()
-
             if self._new_block:
-                block = Block()
+                self._block = Block()
                 self._new_block = False
             
-            if not block.movable(self._field):
+            if not self._block.movable(self._field):
                 self._new_block = True
-                self._field = block.stop(self._field)
-            elif block.movable(self._field) == "gameover":
+                self._field = self._block.stop(self._field)
+                self._block = None
+                continue
+            elif self._block.movable(self._field) == "gameover":
                 break
             else:
-                self._field = block.move(self._field)
+                self._field = self._block.move(self._field)
+
+            if self._handle_events() == False:
+                exit()
             
             self._renderer.draw_field(self._field)
 
@@ -39,5 +43,12 @@ class Gameloop:
     
     def _handle_events(self):
         for event in self._event_queue.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_LEFT:
+                    if self._block.movable(self._field, (0,-1)):
+                        self._field = self._block.move(self._field, (0,-1))
+                elif event.key == pygame.K_RIGHT:     
+                    if self._block.movable(self._field, (0,1)):
+                        self._field = self._block.move(self._field, (0,1))
+            elif event.type == pygame.QUIT:
                 return False

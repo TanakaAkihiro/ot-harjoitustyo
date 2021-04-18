@@ -11,4 +11,5 @@ päivä | aika(h) | mitä tein
 17.04 | 1 | Luokkakaavion suunnittelu
 17.04 | 2 | Luokkien injektointia
 17.04 | 2 | Koodin muokkailua
-Yhteensä | 20 |
+18.04 | 2 | Koodin muokkailua (Palikoiden liikuttaminen oikealle ja vasemmalle
+Yhteensä | 22 |
