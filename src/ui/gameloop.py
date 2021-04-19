@@ -26,7 +26,6 @@ class Gameloop:
             
             if self._handle_events() == False:
                 exit()
-            
             else:
                 if not self._block.movable(self._field.get_field()):
                     self._new_block = True
