@@ -22,7 +22,7 @@ Ohjelman pystyy suorittamaan komennolla:
 poetry run invoke start
 ```
 
-###Testaus
+### Testaus
 
 Testit suoritetaan komennolla:
 
@@ -30,7 +30,7 @@ Testit suoritetaan komennolla:
 poetry run invoke test
 ```
 
-###Testikattavuus
+### Testikattavuus
 
 Testikattavuusraportin voi generoida komennolla:
 
