@@ -8,9 +8,9 @@ Sovellukseen vaaditaan Python-versio 3.7.0 tai uudempi versio. Sovellus silti sa
 
 ## Dokumentaatio  
 
-[Vaatimusmäärittely](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/laskarit/alustava_maarittelydokumentti.md)
+* [Vaatimusmäärittely](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/laskarit/alustava_maarittelydokumentti.md)
 
-[Työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
+* [Työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
 
 ## Komentorivitoiminnot
 
