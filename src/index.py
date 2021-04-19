@@ -1,6 +1,7 @@
 import pygame
 from ui.gameloop import Gameloop
 from entities.clock import Clock
+from entities.field import Field
 from ui.event_queue import EventQueue
 from ui.renderer import Renderer
 
@@ -44,8 +45,9 @@ def main():
     eventqueue = EventQueue()
     clock = Clock()
     renderer = Renderer(screen, heigth, width, coefficient, CELL_SIZE)
+    field = Field(FIELD)
 
-    gameloop = Gameloop(screen, heigth, width, coefficient, eventqueue, clock, renderer, FIELD)
+    gameloop = Gameloop(screen, heigth, width, coefficient, eventqueue, clock, renderer, field)
     gameloop.start()
 
 if __name__=="__main__":

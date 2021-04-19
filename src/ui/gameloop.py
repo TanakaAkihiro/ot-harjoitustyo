@@ -24,20 +24,21 @@ class Gameloop:
                 self._block = Block()
                 self._new_block = False
             
-            if not self._block.movable(self._field):
-                self._new_block = True
-                self._field = self._block.stop(self._field)
-                self._block = None
-                continue
-            elif self._block.movable(self._field) == "gameover":
-                break
-            else:
-                self._field = self._block.move(self._field)
-
             if self._handle_events() == False:
                 exit()
             
-            self._renderer.draw_field(self._field)
+            else:
+                if not self._block.movable(self._field.get_field()):
+                    self._new_block = True
+                    self._field.update(self._block.stop(self._field.get_field()))
+                    self._block = None
+                    continue
+                elif self._block.movable(self._field.get_field()) == "gameover":
+                    break
+                else:
+                    self._field.update(self._block.move(self._field.get_field()))
+            
+            self._renderer.draw_field(self._field.get_field())
 
             self._clock.tick(10)
     
@@ -45,10 +46,13 @@ class Gameloop:
         for event in self._event_queue.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    if self._block.movable(self._field, (0,-1)):
-                        self._field = self._block.move(self._field, (0,-1))
+                    if self._block.movable(self._field.get_field(), (0,-1)):
+                        self._field.update(self._block.move(self._field.get_field(), (0,-1)))
                 elif event.key == pygame.K_RIGHT:     
-                    if self._block.movable(self._field, (0,1)):
-                        self._field = self._block.move(self._field, (0,1))
+                    if self._block.movable(self._field.get_field(), (0,1)):
+                        self._field.update(self._block.move(self._field.get_field(), (0,1)))
+                elif event.key == pygame.K_DOWN:
+                    if self._block.movable(self._field.get_field(), (1,0)):
+                        self._field.update(self._block.move(self._field.get_field(), (1,0)))
             elif event.type == pygame.QUIT:
                 return False
