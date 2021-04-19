@@ -3,7 +3,12 @@ class Block:
     def __init__(self):
         self.shapes = [
             [[0, -1], [0,0], [0, 1], [0, 2]],
-            [[1,0], [0,1], [0,0], [1,1]]
+            [[1,0], [0,1], [0,0], [1,1]],
+            [[0,-1], [1,-1], [1,0], [1,1]],
+            [[0,1], [1,-1], [1,0], [1,1]],
+            [[0,0], [1,-1], [1,0], [1,1]],
+            [[0,-1], [0,0], [1,0], [1,1]],
+            [[0,0], [0,1], [1,-1], [1,0]]
         ]
         self._index = randint(0, len(self.shapes) - 1)
         self.shape = self.shapes[self._index]
@@ -18,6 +23,8 @@ class Block:
             if self.row != 0:
                 for i in self.shape:
                     if i[0] == 0:
+                        field[self.row + i[0] - 1][self.column + i[1]] = 0
+                    elif i[0] != 0 and [i[0] - 1, i[1]] not in self.shape:
                         field[self.row + i[0] - 1][self.column + i[1]] = 0
         
         else:

@@ -14,4 +14,5 @@ päivä | aika(h) | mitä tein
 18.04 | 2 | Koodin muokkailua (Palikoiden liikuttaminen oikealle ja vasemmalle
 19.04 | 1 | Koodin muokkailua (Luokan Field luonti)
 19.04 | 2 | Koodin muokkailua (Täytettyjen rivien poistaminen)
-Yhteensä | 26 |
+19.04 | 1 | Koodin muokkailua (Lisätty kaikki palikkamuodot)
+Yhteensä | 27 |
