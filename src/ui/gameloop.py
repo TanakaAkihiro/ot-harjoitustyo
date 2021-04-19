@@ -38,6 +38,8 @@ class Gameloop:
                 else:
                     self._field.update(self._block.move(self._field.get_field()))
             
+            self._field.empty_filled_rows()
+            
             self._renderer.draw_field(self._field.get_field())
 
             self._clock.tick(10)

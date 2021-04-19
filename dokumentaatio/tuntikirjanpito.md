@@ -12,4 +12,6 @@ päivä | aika(h) | mitä tein
 17.04 | 2 | Luokkien injektointia
 17.04 | 2 | Koodin muokkailua
 18.04 | 2 | Koodin muokkailua (Palikoiden liikuttaminen oikealle ja vasemmalle
-Yhteensä | 22 |
+19.04 | 1 | Koodin muokkailua (Luokan Field luonti)
+19.04 | 2 | Koodin muokkailua (Täytettyjen rivien poistaminen)
+Yhteensä | 26 |

@@ -1,6 +1,12 @@
+from random import randint
 class Block:
     def __init__(self):
-        self.shape = [[0, -1], [0,0], [0, 1], [0, 2]]
+        self.shapes = [
+            [[0, -1], [0,0], [0, 1], [0, 2]],
+            [[1,0], [0,1], [0,0], [1,1]]
+        ]
+        self._index = randint(0, len(self.shapes) - 1)
+        self.shape = self.shapes[self._index]
         self.row = -1
         self.column = 4
     
@@ -11,7 +17,8 @@ class Block:
                 field[self.row + i[0]][self.column + i[1]] = 1
             if self.row != 0:
                 for i in self.shape:
-                    field[self.row + i[0] - 1][self.column + i[1]] = 0
+                    if i[0] == 0:
+                        field[self.row + i[0] - 1][self.column + i[1]] = 0
         
         else:
             for i in self.shape:
@@ -33,7 +40,7 @@ class Block:
                     return False
                 elif next_block < 0:
                     return "gameover"
-                elif field[self.row+i[0]+1][self.column+i[1]]!= 0:
+                elif field[self.row+i[0]+1][self.column+i[1]] == 2:
                     return False
         else:
             for i in self.shape:
