@@ -1,1 +1,1 @@
-![Pakettikaavio](file:///C:/Users/Aki/AppData/Local/Temp/IMG_9478.jpg)
+![Pakettikaavio](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/IMG_9478.jpg)
