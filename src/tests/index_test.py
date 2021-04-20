@@ -3,7 +3,7 @@ from entities.block import Block
 from entities.clock import Clock
 from entities.field import Field
 
-#class TestBlock(unittest.TestCase):
+# class TestBlock(unittest.TestCase):
 #    def setUp(self):
 #        self.field = [
 #            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -20,7 +20,7 @@ from entities.field import Field
 #        self.height = len(self.field[0])
 #        self.width = len(self.field)
 #        self.block = Block()
-#    
+#
 #    def test_block_is_falling(self):
 #        self.field = self.block.move(self.field)
 #       self.assertEqual(self.field, [
