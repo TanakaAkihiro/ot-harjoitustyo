@@ -17,11 +17,6 @@ class Block:
         self.row = -1
         self.column = 4
 
-        self.left_edge = min(
-            self.shape[0][1], self.shape[1][1], self.shape[2][1], self.shape[2][1])
-        self.right_edge = max(
-            self.shape[0][1], self.shape[1][1], self.shape[2][1], self.shape[2][1])
-
     def move(self, field, direction=None):
         if direction is None:
             self.row += 1
