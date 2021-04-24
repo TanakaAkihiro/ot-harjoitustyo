@@ -5,6 +5,7 @@ class EventQueue:
     '''
     Luokka, joka käsittelee tapahtumasarjoja.
     '''
+
     def get(self):
         '''
         Palauttaa tapahtumasarjoja.

@@ -1,9 +1,9 @@
 import pygame
 from ui.gameloop import Gameloop
-from entities.clock import Clock
-from entities.field import Field
 from ui.event_queue import EventQueue
 from ui.renderer import Renderer
+from entities.clock import Clock
+from entities.field import Field
 
 FIELD = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -31,11 +31,10 @@ CELL_SIZE = 70
 
 
 def main():
-
     '''
     Alustaa tarvittavat luokat ja käynnistää ohjelman.
     '''
-    
+
     heigth = len(FIELD)
     width = len(FIELD[0])
     coefficient = CELL_SIZE//2.5

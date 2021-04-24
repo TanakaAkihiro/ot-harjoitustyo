@@ -19,6 +19,7 @@ class Block:
     column: int
         Palikan sijainnin sarakeindeksi
     '''
+
     def __init__(self):
         self.shapes = [
             [[0, -1], [0, 0], [0, 1], [0, 2]],
@@ -90,9 +91,9 @@ class Block:
                 next_block = self.row + i[0] + 1
                 if next_block > len(field) - 1:
                     return False
-                elif next_block < 0:
+                if next_block < 0:
                     return "gameover"
-                elif field[self.row+i[0]+1][self.column+i[1]] == 2:
+                if field[self.row+i[0]+1][self.column+i[1]] == 2:
                     return False
         else:
             for i in self.shape:
@@ -103,7 +104,7 @@ class Block:
                 condition_3 = next_block[1] < 0
                 if condition_1 or condition_2 or condition_3:
                     return False
-                elif field[next_block[0]][next_block[1]] == 2:
+                if field[next_block[0]][next_block[1]] == 2:
                     return False
         return True
 
