@@ -15,4 +15,5 @@ päivä | aika(h) | mitä tein
 19.04 | 1 | Koodin muokkailua (Luokan Field luonti)
 19.04 | 2 | Koodin muokkailua (Täytettyjen rivien poistaminen)
 19.04 | 1 | Koodin muokkailua (Lisätty kaikki palikkamuodot)
-Yhteensä | 27 |
+25.04 | 3 | Docstringin ja releasen lisäys sekä koodin muokkailua (Ruudukon systeemin muokkaaminen) 
+Yhteensä | 30 |

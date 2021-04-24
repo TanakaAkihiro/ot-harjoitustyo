@@ -22,16 +22,37 @@ class Block:
 
     def __init__(self):
         self._shapes = [
-            [[0, -1], [0, 0], [0, 1], [0, 2]],
-            [[1, 0], [0, 1], [0, 0], [1, 1]],
-            [[0, -1], [1, -1], [1, 0], [1, 1]],
-            [[0, 1], [1, -1], [1, 0], [1, 1]],
-            [[0, 0], [1, -1], [1, 0], [1, 1]],
-            [[0, -1], [0, 0], [1, 0], [1, 1]],
-            [[0, 0], [0, 1], [1, -1], [1, 0]]
+            [ # I
+                [[0, -1], [0, 0], [0, 1], [0, 2]],
+                [[-1, 0], [0, 0], [1, 0], [2, 0]]
+            ],
+            [ # O
+                [[1, 0], [0, 1], [0, 0], [1, 1]]
+            ],
+            [ # J
+                [[0, -1], [1, -1], [1, 0], [1, 1]],
+
+            ],
+            [ # L
+                [[0, 1], [1, -1], [1, 0], [1, 1]],
+
+            ],
+            [ # T
+                [[0, 0], [1, -1], [1, 0], [1, 1]],
+
+            ],
+            [ # Z
+                [[0, -1], [0, 0], [1, 0], [1, 1]],
+            
+            ],
+            [ # S
+                [[0, 0], [0, 1], [1, -1], [1, 0]],
+            
+            ]
         ]
-        self._index = randint(0, len(self._shapes) - 1)
-        self.shape = self._shapes[self._index]
+        self._block_type = randint(0, len(self._shapes) - 1)
+        self._block_rotation = 0
+        self.shape = self._shapes[self._block_type][self._block_rotation]
         self.row = -1
         self.column = 4
 
@@ -63,7 +84,7 @@ class Block:
                     return False
                 if next_block < 0:
                     return "gameover"
-                if field[self.row+i[0]+1][self.column+i[1]] == 2:
+                if field[self.row+i[0]+1][self.column+i[1]] == 1:
                     return False
         else:
             for i in self.shape:
@@ -74,7 +95,7 @@ class Block:
                 condition_3 = next_block[1] < 0
                 if condition_1 or condition_2 or condition_3:
                     return False
-                if field[next_block[0]][next_block[1]] == 2:
+                if field[next_block[0]][next_block[1]] == 1:
                     return False
         return True
 
@@ -83,5 +104,5 @@ class Block:
         Palauttaa ruudukon, jossa palikka pysäytetään liikkumasta.
         '''
         for i in self.shape:
-            field[self.row + i[0]][self.column + i[1]] = 2
+            field[self.row + i[0]][self.column + i[1]] = 1
         return field

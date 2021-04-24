@@ -33,7 +33,7 @@ class Field:
 
         index = 0
         for row in self._field:
-            if row == [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]:
+            if row == [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]:
                 self._field = self._field[:index] + self._field[index + 1:]
                 self._field = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] + self._field
             index += 1
@@ -44,6 +44,6 @@ class Field:
         '''
 
         for row in self._field:
-            if row == [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]:
+            if row == [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]:
                 return True
         return False

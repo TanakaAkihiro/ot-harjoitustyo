@@ -45,9 +45,6 @@ class Renderer:
                     for i in block.shape:
                         if row == i[0] + block.row and column == i[1] + block.column:
                             pygame.draw.rect(self._screen, self._colors["Blue"], square)
-                #if field[row][column] == 1:
-                #    pygame.draw.rect(
-                #        self._screen, self._colors["Blue"], square)
-                if field[row][column] == 2:
+                if field[row][column] == 1:
                     pygame.draw.rect(self._screen, self._colors["Red"], square)
         pygame.display.flip()
