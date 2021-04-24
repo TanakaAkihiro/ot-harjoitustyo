@@ -31,6 +31,11 @@ CELL_SIZE = 70
 
 
 def main():
+
+    '''
+    Alustaa tarvittavat luokat ja käynnistää ohjelman.
+    '''
+    
     heigth = len(FIELD)
     width = len(FIELD[0])
     coefficient = CELL_SIZE//2.5
@@ -46,8 +51,7 @@ def main():
     renderer = Renderer(screen, heigth, width, coefficient, CELL_SIZE)
     field = Field(FIELD)
 
-    gameloop = Gameloop(screen, heigth, width, coefficient,
-                        eventqueue, clock, renderer, field)
+    gameloop = Gameloop(eventqueue, clock, renderer, field)
     gameloop.start()
 
 

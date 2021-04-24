@@ -3,48 +3,59 @@ from entities.block import Block
 
 
 class Gameloop:
-    def __init__(self, screen, height, width, coefficient, event_queue, clock, renderer, field):
-        self._screen = screen
-        self._height = height
-        self._width = width
-        self._coefficient = coefficient
+    '''
+    Luokka yhdelle pelikierrokselle.
+    '''
+
+    def __init__(self, event_queue, clock, renderer, field):
+        self._field = field
+        self._height = len(self._field.get_field())
+        self._width = len(self._field.get_field()[0])
         self._event_queue = event_queue
         self._clock = clock
         self._renderer = renderer
-        self._field = field
 
-        self._new_block = True
         self._block = None
 
     def start(self):
+        '''
+        Aloittaa pelkierroksen.
+        '''
+
         self._renderer.show_screen()
+        new_block = True
         while True:
-            if self._new_block:
-                self._block = Block()
-                self._new_block = False
-
-            if self._handle_events() == False:
-                exit()
+            if self._field.check_filled_rows():
+                self._field.empty_filled_rows()
             else:
-                if not self._block.movable(self._field.get_field()):
-                    self._new_block = True
-                    self._field.update(
-                        self._block.stop(self._field.get_field()))
-                    self._block = None
-                    continue
-                elif self._block.movable(self._field.get_field()) == "gameover":
-                    break
-                else:
-                    self._field.update(
-                        self._block.move(self._field.get_field()))
+                if new_block:
+                    self._block = Block()
+                    new_block = False
 
-            self._field.empty_filled_rows()
+                if self._handle_events() is False:
+                    exit()
+                else:
+                    if not self._block.movable(self._field.get_field()):
+                        new_block = True
+                        self._field.update(
+                            self._block.stop(self._field.get_field()))
+                        self._block = None
+                        continue
+                    elif self._block.movable(self._field.get_field()) == "gameover":
+                        break
+                    else:
+                        self._field.update(
+                            self._block.move(self._field.get_field()))
 
             self._renderer.draw_field(self._field.get_field())
 
-            self._clock.tick(10)
+            self._clock.tick(4)
 
     def _handle_events(self):
+        '''
+        Käsittelee näppäimistön tapahtumat
+        '''
+
         for event in self._event_queue.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:

@@ -2,6 +2,11 @@ import pygame
 
 
 class Renderer:
+
+    '''
+    Luokka, joka käsittelee näytön piirtämistä.
+    '''
+
     def __init__(self, screen, height, width, coefficient, cell_size):
         self._screen = screen
         self._height = height
@@ -13,6 +18,11 @@ class Renderer:
             192, 192, 192), "Blue": (0, 0, 128), "Red": (200, 0, 0)}
 
     def show_screen(self):
+
+        '''
+        Piirtää valkoisen taustan sekä ruudukon.
+        '''
+
         self._screen.fill(self._colors["White"])
 
         for row in range(self._height):
@@ -23,6 +33,11 @@ class Renderer:
         pygame.display.flip()
 
     def draw_field(self, field):
+
+        '''
+        Piirtää ruudukon pelin aikana.
+        '''
+        
         for row in range(self._height):
             for column in range(self._width):
                 square = ((self._height*self._cell_size)/2-(self._width*self._coefficient/2) + self._coefficient*column, (self._width *
