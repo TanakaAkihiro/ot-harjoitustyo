@@ -9,8 +9,6 @@ class Gameloop:
 
     def __init__(self, event_queue, clock, renderer, field):
         self._field = field
-        self._height = len(self._field.get_field())
-        self._width = len(self._field.get_field()[0])
         self._event_queue = event_queue
         self._clock = clock
         self._renderer = renderer
@@ -32,9 +30,9 @@ class Gameloop:
                     self._block = Block()
                     new_block = False
 
-                if self._handle_events() is False:
-                    exit()
-                else:
+                event = self._handle_events()
+
+                if event is None:
                     if not self._block.movable(self._field.get_field()):
                         new_block = True
                         self._field.update(
@@ -46,10 +44,12 @@ class Gameloop:
                     else:
                         self._field.update(
                             self._block.move(self._field.get_field()))
+                elif event is False:
+                    exit()
 
-            self._renderer.draw_field(self._field.get_field())
+            self._renderer.draw_field(self._field.get_field(), self._block)
 
-            self._clock.tick(4)
+            self._clock.tick(10)
 
     def _handle_events(self):
         '''
@@ -62,13 +62,20 @@ class Gameloop:
                     if self._block.movable(self._field.get_field(), (0, -1)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (0, -1)))
+                        self._renderer.draw_field(self._field.get_field(), self._block)
+                        return True
                 elif event.key == pygame.K_RIGHT:
                     if self._block.movable(self._field.get_field(), (0, 1)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (0, 1)))
+                        self._renderer.draw_field(self._field.get_field(), self._block)
+                        return True
                 elif event.key == pygame.K_DOWN:
                     if self._block.movable(self._field.get_field(), (1, 0)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (1, 0)))
+                        self._renderer.draw_field(self._field.get_field(), self._block)
+                        return    
+                
             elif event.type == pygame.QUIT:
                 return False
