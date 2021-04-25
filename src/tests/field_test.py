@@ -35,7 +35,7 @@ class TestField(unittest.TestCase):
         self.field.update([
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [2, 2, 2, 2, 2, 2, 2, 2, 2, 2]
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         ])
         self.field.empty_filled_rows()
         self.assertEqual(self.field.get_field(), [

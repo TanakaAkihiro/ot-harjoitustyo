@@ -5,52 +5,87 @@ from entities.block import Block
 class TestBlock(unittest.TestCase):
     def setUp(self):
         self.block = Block()
-        self.block.shape = self.block.shapes[0]
+        self.block._block_type = 0
+        self.block.shape = self.block._shapes[self.block._block_type][0]
         self.field = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ]
+        self.block.move()
 
     def test_block_is_appearing_on_the_field(self):
-        result = self.block.move(self.field)
-        self.assertEqual(result, [
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ])
+        self.assertEqual((self.block.row, self.block.column), (0, 4))
 
     def test_block_is_falling(self):
-        self.field = self.block.move(self.field)
-        result = self.block.move(self.field)
-        self.assertEqual(result, [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ])
-
-    def test_block_can_be_moved_to_left(self):
+        self.block.move()
+        self.assertEqual((self.block.row, self.block.column), (1,4))
+    
+    def test_check_if_the_block_is_able_to_fall(self):
+        result = self.block.movable(self.field)
+        self.assertTrue(result)
         self.field = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
         ]
-        result = self.block.move(self.field, (0, -1))
-        self.assertEqual(result, [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 1, 1, 1, 1, 0, 0, 0, 0]
-        ])
+        result = self.block.movable(self.field)
+        self.assertFalse(result)
 
-    def test_blovk_can_be_moved_to_right(self):
+    def test_move_the_block_to_left(self):
+        self.block.move((0, -1))
+        self.assertEqual((self.block.row, self.block.column), (0, 3))
+
+    def test_move_the_block_to_right(self):
+        self.block.move((0, 1))
+        self.assertEqual((self.block.row, self.block.column), (0, 5))
+    
+    def test_check_if_the_block_is_movable_to_left(self):
+        result = self.block.movable(self.field, (0, -1))
+        self.assertTrue(result)
         self.field = [
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+            [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+            [1, 1, 1, 0, 0, 0, 0, 0, 0, 0]
         ]
-        result = self.block.move(self.field, (0, 1))
+        result = self.block.movable(self.field, (0, -1))
+        self.assertFalse(result)
+    
+    def test_check_if_the_block_is_movable_to_right(self):
+        result = self.block.movable(self.field, (0, 1))
+        self.assertTrue(result)
+        self.field = [
+            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 1, 1, 1]
+        ]
+        result = self.block.movable(self.field, (0, 1))
+        self.assertFalse(result)
+    
+    def test_stop_the_block_on_the_bottom(self):
+        self.block.move()
+        self.block.move()
+        result = self.block.stop(self.field)
         self.assertEqual(result, [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 1, 1, 1, 1, 0, 0]
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
         ])
+    
+    def test_rotate_the_block_clockwise(self):
+        self.block.rotate(1)
+        self.assertEqual(self.block.shape, [[-1, 0], [0, 0], [1, 0], [2, 0]])
+
+        self.block._block_rotation = 3
+        self.shape = self.block._shapes[self.block._block_type][self.block._block_rotation]
+        self.block.rotate(1)
+        self.assertEqual(self.block.shape, [[0, -1], [0, 0], [0, 1], [0, 2]])
+    
+    def test_rotate_the_block_anti_clockwise(self):
+        self.block.rotate(-1)
+        self.assertEqual(self.block.shape, [[0, 0], [1, 0], [2, 0], [3, 0]])
+
+        self.block._block_rotation = 1
+        self.shape = self.block._shapes[self.block._block_type][self.block._block_rotation]
+        self.block.rotate(-1)
+        self.assertEqual(self.block.shape, [[0, -1], [0, 0], [0, 1], [0, 2]])

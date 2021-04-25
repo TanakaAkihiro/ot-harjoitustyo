@@ -22,41 +22,41 @@ class Block:
 
     def __init__(self):
         self._shapes = [
-            [ # I
+            [  # I
                 [[0, -1], [0, 0], [0, 1], [0, 2]],
                 [[-1, 0], [0, 0], [1, 0], [2, 0]],
                 [[0, -2], [0, -1], [0, 0], [0, 1]],
                 [[0, 0], [1, 0], [2, 0], [3, 0]]
 
             ],
-            [ # O
+            [  # O
                 [[1, 0], [0, 1], [0, 0], [1, 1]]
             ],
-            [ # J
+            [  # J
                 [[0, -1], [1, -1], [1, 0], [1, 1]],
                 [[0, 1], [0, 0], [1, 0], [2, 0]],
                 [[2, 1], [1, -1], [1, 0], [1, 1]],
                 [[2, -1], [0, 0], [1, 0], [2, 0]]
             ],
-            [ # L
+            [  # L
                 [[0, 1], [1, -1], [1, 0], [1, 1]],
                 [[2, 1], [0, 0], [1, 0], [2, 0]],
                 [[2, -1], [1, -1], [1, 0], [1, 1]],
                 [[0, -1], [0, 0], [1, 0], [2, 0]]
             ],
-            [ # T
+            [  # T
                 [[0, 0], [1, -1], [1, 0], [1, 1]],
                 [[1, 1], [0, 0], [1, 0], [2, 0]],
                 [[2, 0], [1, -1], [1, 0], [1, 1]],
                 [[1, -1], [0, 0], [1, 0], [2, 0]]
             ],
-            [ # Z
+            [  # Z
                 [[0, -1], [0, 0], [1, 0], [1, 1]],
                 [[0, 1], [1, 1], [1, 0], [2, 0]],
                 [[1, -1], [1, 0], [2, 0], [2, 1]],
                 [[0, 0], [1, 0], [1, -1], [2, -1]]
             ],
-            [ # S
+            [  # S
                 [[0, 0], [0, 1], [1, -1], [1, 0]],
                 [[0, 0], [1, 0], [1, 1], [2, 1]],
                 [[1, 1], [1, 0], [2, 0], [2, -1]],
@@ -69,7 +69,7 @@ class Block:
         self.row = -1
         self.column = 4
 
-    def move(self, field, direction=None):
+    def move(self, direction=None):
         '''
         Palauttaa ruudukon, jossa palikka on liikutettu haluttuun suuntaan.
         Jos suuntaa ei ole määritelty, palikka liikkuu yhen rivin verran alaspäin.
@@ -81,7 +81,6 @@ class Block:
         else:
             self.row += direction[0]
             self.column += direction[1]
-        return field
 
     def movable(self, field, direction=None):
         '''
@@ -124,7 +123,7 @@ class Block:
         '''
         Muuta palikan asento.
         '''
-        if self._block_type == 1:  #Jos palikka on O-tyyppinen, palautetaan None
+        if self._block_type == 1:  # Jos palikka on O-tyyppinen, palautetaan None
             return
         if direction == 1:
             if self._block_rotation == 3:
@@ -140,7 +139,7 @@ class Block:
             else:
                 self._block_rotation += direction
                 self.shape = self._shapes[self._block_type][self._block_rotation]
-                
+
     def rotatable(self, field, direction):
         '''
         Tarkista, onko mahdollista muuttaa palikan asentoa haluttuun suuntaan.
@@ -153,7 +152,8 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3 or condition_4:
                         return False
             else:
@@ -161,7 +161,8 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3 or condition_4:
                         return False
         else:
@@ -170,7 +171,8 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3 or condition_4:
                         return False
             else:
@@ -178,7 +180,8 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3 or condition_4:
                         return False
         return True
