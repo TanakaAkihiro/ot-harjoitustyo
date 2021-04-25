@@ -10,4 +10,10 @@ class EventQueue:
         '''
         Palauttaa tapahtumasarjoja.
         '''
-        return pygame.event.get()
+        return pygame.event.poll()
+
+    def clear_queue(self):
+        '''
+        Tyhjentää tapahtumasarjan.
+        '''
+        pygame.event.clear()

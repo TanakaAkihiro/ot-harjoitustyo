@@ -56,35 +56,36 @@ class Gameloop:
         Käsittelee näppäimistön tapahtumat
         '''
 
-        for event in self._event_queue.get():
-            boolean = False
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT:
-                    if self._block.movable(self._field.get_field(), (0, -1)):
-                        self._field.update(self._block.move(
-                            self._field.get_field(), (0, -1)))
-                        boolean = True
-                if event.key == pygame.K_RIGHT:
-                    if self._block.movable(self._field.get_field(), (0, 1)):
-                        self._field.update(self._block.move(
-                            self._field.get_field(), (0, 1)))
-                        boolean = True
-                if event.key == pygame.K_DOWN:
-                    if self._block.movable(self._field.get_field(), (1, 0)):
-                        self._field.update(self._block.move(
-                            self._field.get_field(), (1, 0)))
-                        boolean = False
-                if event.key == pygame.K_UP:
-                    if self._block.rotatable(self._field.get_field(), 1):
-                        self._block.rotate(1)
-                        boolean = False
+        event = self._event_queue.get()
+        boolean = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                if self._block.movable(self._field.get_field(), (0, -1)):
+                    self._field.update(self._block.move(
+                        self._field.get_field(), (0, -1)))
+                    boolean = True
+            if event.key == pygame.K_RIGHT:
+                if self._block.movable(self._field.get_field(), (0, 1)):
+                    self._field.update(self._block.move(
+                        self._field.get_field(), (0, 1)))
+                    boolean = True
+            if event.key == pygame.K_DOWN:
+                if self._block.movable(self._field.get_field(), (1, 0)):
+                    self._field.update(self._block.move(
+                        self._field.get_field(), (1, 0)))
+            if event.key == pygame.K_UP:
+                if self._block.rotatable(self._field.get_field(), 1):
+                    self._block.rotate(1)
+            if event.key == pygame.K_z:
+                if self._block.rotatable(self._field.get_field(), -1):
+                    self._block.rotate(-1)
 
-                self._renderer.draw_field(self._field.get_field(), self._block)
-                pygame.event.clear()
-                if boolean:
-                    return True
-                else:
-                    return
-                    
-            elif event.type == pygame.QUIT:
-                return False
+            self._renderer.draw_field(self._field.get_field(), self._block)
+            self._event_queue.clear_queue()
+            if boolean:
+                return True
+            else:
+                return
+                
+        elif event.type == pygame.QUIT:
+            return False
