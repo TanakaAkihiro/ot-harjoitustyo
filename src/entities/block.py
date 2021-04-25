@@ -24,30 +24,43 @@ class Block:
         self._shapes = [
             [ # I
                 [[0, -1], [0, 0], [0, 1], [0, 2]],
-                [[-1, 0], [0, 0], [1, 0], [2, 0]]
+                [[-1, 0], [0, 0], [1, 0], [2, 0]],
+                [[0, -2], [0, -1], [0, 0], [0, 1]],
+                [[0, 0], [1, 0], [2, 0], [3, 0]]
+
             ],
             [ # O
                 [[1, 0], [0, 1], [0, 0], [1, 1]]
             ],
             [ # J
                 [[0, -1], [1, -1], [1, 0], [1, 1]],
-
+                [[0, 1], [0, 0], [1, 0], [2, 0]],
+                [[2, 1], [1, -1], [1, 0], [1, 1]],
+                [[2, -1], [0, 0], [1, 0], [2, 0]]
             ],
             [ # L
                 [[0, 1], [1, -1], [1, 0], [1, 1]],
-
+                [[2, 1], [0, 0], [1, 0], [2, 0]],
+                [[2, -1], [1, -1], [1, 0], [1, 1]],
+                [[0, -1], [0, 0], [1, 0], [2, 0]]
             ],
             [ # T
                 [[0, 0], [1, -1], [1, 0], [1, 1]],
-
+                [[1, 1], [0, 0], [1, 0], [2, 0]],
+                [[2, 0], [1, -1], [1, 0], [1, 1]],
+                [[1, -1], [0, 0], [1, 0], [2, 0]]
             ],
             [ # Z
                 [[0, -1], [0, 0], [1, 0], [1, 1]],
-            
+                [[0, 1], [1, 1], [1, 0], [2, 0]],
+                [[1, -1], [1, 0], [2, 0], [2, 1]],
+                [[0, 0], [1, 0], [1, -1], [2, -1]]
             ],
             [ # S
                 [[0, 0], [0, 1], [1, -1], [1, 0]],
-            
+                [[0, 0], [1, 0], [1, 1], [2, 1]],
+                [[1, 1], [1, 0], [2, 0], [2, -1]],
+                [[0, -1], [1, -1], [1, 0], [2, 0]]
             ]
         ]
         self._block_type = randint(0, len(self._shapes) - 1)
@@ -106,3 +119,66 @@ class Block:
         for i in self.shape:
             field[self.row + i[0]][self.column + i[1]] = 1
         return field
+
+    def rotate(self, direction):
+        '''
+        Muuta palikan asento.
+        '''
+        if self._block_type == 1:  #Jos palikka on O-tyyppinen, palautetaan None
+            return
+        if direction == 1:
+            if self._block_rotation == 3:
+                self.shape = self._shapes[self._block_type][0]
+                self._block_rotation = 0
+            else:
+                self._block_rotation += direction
+                self.shape = self._shapes[self._block_type][self._block_rotation]
+        else:
+            if self._block_rotation == 0:
+                self.shape = self._shapes[self._block_type][3]
+                self._block_rotation = 3
+            else:
+                self._block_rotation += direction
+                self.shape = self._shapes[self._block_type][self._block_rotation]
+                
+    def rotatable(self, field, direction):
+        '''
+        Tarkista, onko mahdollista muuttaa palikan asentoa haluttuun suuntaan.
+        '''
+        if self._block_type == 1:
+            return False
+        if direction == 1:
+            if self._block_rotation == 3:
+                for i in self._shapes[self._block_type][0]:
+                    condition_1 = self.row + i[0] > len(field) - 1
+                    condition_2 = self.column + i[1] > len(field[0]) - 1
+                    condition_3 = self.column + i[1] < 0
+                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    if condition_1 or condition_2 or condition_3 or condition_4:
+                        return False
+            else:
+                for i in self._shapes[self._block_type][self._block_rotation + direction]:
+                    condition_1 = self.row + i[0] > len(field) - 1
+                    condition_2 = self.column + i[1] > len(field[0]) - 1
+                    condition_3 = self.column + i[1] < 0
+                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    if condition_1 or condition_2 or condition_3 or condition_4:
+                        return False
+        else:
+            if self._block_rotation == 0:
+                for i in self._shapes[self._block_type][3]:
+                    condition_1 = self.row + i[0] > len(field) - 1
+                    condition_2 = self.column + i[1] > len(field[0]) - 1
+                    condition_3 = self.column + i[1] < 0
+                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    if condition_1 or condition_2 or condition_3 or condition_4:
+                        return False
+            else:
+                for i in self._shapes[self._block_type][self._block_rotation + direction]:
+                    condition_1 = self.row + i[0] > len(field) - 1
+                    condition_2 = self.column + i[1] > len(field[0]) - 1
+                    condition_3 = self.column + i[1] < 0
+                    condition_4 = field[self.row + i[0]][self.column + i[1]] == 1
+                    if condition_1 or condition_2 or condition_3 or condition_4:
+                        return False
+        return True

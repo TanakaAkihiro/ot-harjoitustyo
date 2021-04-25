@@ -49,7 +49,7 @@ class Gameloop:
 
             self._renderer.draw_field(self._field.get_field(), self._block)
 
-            self._clock.tick(10)
+            self._clock.tick(5)
 
     def _handle_events(self):
         '''
@@ -57,25 +57,34 @@ class Gameloop:
         '''
 
         for event in self._event_queue.get():
+            boolean = False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     if self._block.movable(self._field.get_field(), (0, -1)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (0, -1)))
-                        self._renderer.draw_field(self._field.get_field(), self._block)
-                        return True
-                elif event.key == pygame.K_RIGHT:
+                        boolean = True
+                if event.key == pygame.K_RIGHT:
                     if self._block.movable(self._field.get_field(), (0, 1)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (0, 1)))
-                        self._renderer.draw_field(self._field.get_field(), self._block)
-                        return True
-                elif event.key == pygame.K_DOWN:
+                        boolean = True
+                if event.key == pygame.K_DOWN:
                     if self._block.movable(self._field.get_field(), (1, 0)):
                         self._field.update(self._block.move(
                             self._field.get_field(), (1, 0)))
-                        self._renderer.draw_field(self._field.get_field(), self._block)
-                        return    
-                
+                        boolean = False
+                if event.key == pygame.K_UP:
+                    if self._block.rotatable(self._field.get_field(), 1):
+                        self._block.rotate(1)
+                        boolean = False
+
+                self._renderer.draw_field(self._field.get_field(), self._block)
+                pygame.event.clear()
+                if boolean:
+                    return True
+                else:
+                    return
+                    
             elif event.type == pygame.QUIT:
                 return False
