@@ -18,4 +18,5 @@ päivä | aika(h) | mitä tein
 24.04 | 3 | Docstringin ja releasen lisäys sekä koodin muokkailua (Ruudukon systeemin muokkaaminen) 
 25.04 | 2 | Koodin muokkailua (Palikoiden asentojen muuttaminen)
 25.04 | 1 | Testien muokkailua ja lisäilyä
-Yhteensä | 33 |
+26.04 | 1 | Testien muokkailua ja lisäilyä
+Yhteensä | 34 |
