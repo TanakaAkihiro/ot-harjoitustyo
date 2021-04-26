@@ -19,4 +19,5 @@ päivä | aika(h) | mitä tein
 25.04 | 2 | Koodin muokkailua (Palikoiden asentojen muuttaminen)
 25.04 | 1 | Testien muokkailua ja lisäilyä
 26.04 | 1 | Testien muokkailua ja lisäilyä
-Yhteensä | 34 |
+26.04 | 1 | Sekvenssikaavioiden luonti
+Yhteensä | 35 |
