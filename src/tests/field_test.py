@@ -43,3 +43,16 @@ class TestField(unittest.TestCase):
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ])
+
+    def test_return_true_when_there_is_a_filled_row(self):
+        self.field.update([
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        ])
+        result = self.field.check_filled_rows()
+        self.assertTrue(result)
+
+    def test_return_false_when_there_is_a_filled_row(self):
+        result = self.field.check_filled_rows()
+        self.assertFalse(result)
