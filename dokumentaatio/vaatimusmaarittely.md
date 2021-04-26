@@ -17,7 +17,7 @@ Sovelluksella on yksi käyttäjärooli eli *normaali käyttäjä*.
 * Pelaaja voi aloittaa pelin pelaamisen
 
 ### Pelin aikana
-* Pelaaja voi liikutella (**Tehty**) ja käännellä tippuvia palikoita
+* Pelaaja voi liikutella ja käännellä tippuvia palikoita (**Tehty**)
 * Pelaaja näkee oman pistemäärän
 * Pelaaja saa kadotettua palikoita täyttämällä tietyn rivin kohtia palikoilla (**Tehty**)
 
