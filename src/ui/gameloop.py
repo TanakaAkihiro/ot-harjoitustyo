@@ -48,7 +48,7 @@ class Gameloop:
 
             self._renderer.draw_field(self._field.get_field(), self._block)
 
-            self._clock.tick(5)
+            self._clock.tick(10)
 
     def _handle_events(self):
         '''
@@ -62,17 +62,17 @@ class Gameloop:
                 if self._block.movable(self._field.get_field(), (0, -1)):
                     self._block.move((0, -1))
                     boolean = True
-            if event.key == pygame.K_RIGHT:
+            elif event.key == pygame.K_RIGHT:
                 if self._block.movable(self._field.get_field(), (0, 1)):
                     self._block.move((0, 1))
                     boolean = True
-            if event.key == pygame.K_DOWN:
+            elif event.key == pygame.K_DOWN:
                 if self._block.movable(self._field.get_field(), (1, 0)):
                     self._block.move((1, 0))
-            if event.key == pygame.K_UP:
+            elif event.key == pygame.K_UP:
                 if self._block.rotatable(self._field.get_field(), 1):
                     self._block.rotate(1)
-            if event.key == pygame.K_z:
+            elif event.key == pygame.K_z:
                 if self._block.rotatable(self._field.get_field(), -1):
                     self._block.rotate(-1)
 
@@ -80,8 +80,7 @@ class Gameloop:
             self._event_queue.clear_queue()
             if boolean:
                 return True
-            else:
-                return
+            return
 
         elif event.type == pygame.QUIT:
             return False
