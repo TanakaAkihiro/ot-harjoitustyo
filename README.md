@@ -14,6 +14,13 @@ Sovellukseen vaaditaan Python-versio 3.7.0 tai uudempi versio. Sovellus silti sa
 
 * [Arkkitehtuuri](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Asennus
+
+Asenna riippuvuudet komennolla:
+```
+poetry install
+```
+
 
 ## Komentorivitoiminnot
 
