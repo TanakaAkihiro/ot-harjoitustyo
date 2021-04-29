@@ -20,4 +20,5 @@ päivä | aika(h) | mitä tein
 25.04 | 1 | Testien muokkailua ja lisäilyä
 26.04 | 1 | Testien muokkailua ja lisäilyä
 26.04 | 1 | Sekvenssikaavioiden luonti
-Yhteensä | 35 |
+29.04 | 3 | Aloitusnäytön luominen sekä poistettujen rivien määrän näyttäminen
+Yhteensä | 38 |

@@ -31,18 +31,20 @@ class Field:
         Tyhjentää täytetyt rivit.
         '''
 
+        count = 0
         index = 0
         for row in self._field:
             if row == [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]:
                 self._field = self._field[:index] + self._field[index + 1:]
                 self._field = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0]] + self._field
+                count += 1
             index += 1
+        return count
 
     def check_filled_rows(self):
         '''
         Palauttaa True, jos ruudukossa on täytetty rivi.
         '''
-
         for row in self._field:
             if row == [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]:
                 return True

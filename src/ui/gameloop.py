@@ -14,6 +14,7 @@ class Gameloop:
         self._renderer = renderer
 
         self._block = None
+        self._emptied_rows = 0
 
     def start(self):
         '''
@@ -24,8 +25,11 @@ class Gameloop:
         new_block = True
         while True:
             if self._field.check_filled_rows():
-                self._field.empty_filled_rows()
+                self._emptied_rows += self._field.empty_filled_rows()
             else:
+                if self._field.get_field()[0][4] == 1 or self._field.get_field()[0][5] == 1:
+                    return
+
                 if new_block:
                     self._block = Block()
                     new_block = False
@@ -38,15 +42,12 @@ class Gameloop:
                         self._field.update(
                             self._block.stop(self._field.get_field()))
                         self._block = None
-                        continue
-                    elif self._block.movable(self._field.get_field()) == "gameover":
-                        break
                     else:
                         self._block.move()
                 elif event is False:
                     exit()
 
-            self._renderer.draw_field(self._field.get_field(), self._block)
+            self._renderer.draw_field(self._field.get_field(), self._block, self._emptied_rows)
 
             self._clock.tick(10)
 
@@ -57,6 +58,7 @@ class Gameloop:
 
         event = self._event_queue.get()
         boolean = False
+        
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
                 if self._block.movable(self._field.get_field(), (0, -1)):
@@ -76,7 +78,7 @@ class Gameloop:
                 if self._block.rotatable(self._field.get_field(), -1):
                     self._block.rotate(-1)
 
-            self._renderer.draw_field(self._field.get_field(), self._block)
+            self._renderer.draw_field(self._field.get_field(), self._block, self._emptied_rows)
             self._event_queue.clear_queue()
             if boolean:
                 return True
