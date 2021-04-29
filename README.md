@@ -6,13 +6,14 @@ Perinteinen tietokonepeli, jota kaikki on varmasti kerran nähnyt tai pelannut.
 
 Sovellukseen vaaditaan Python-versio 3.7.0 tai uudempi versio. Sovellus silti saattaa toimia myös vanhemmallakin versiolla.
 
-## Dokumentaatio  
+## Dokumentaatio  )
+* [Käyttöohje](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
 
 * [Vaatimusmäärittely](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
-* [Työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
-
 * [Arkkitehtuuri](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+* [Työaikakirjanpito](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/tetris/dokumentaatio/tuntikirjanpito.md)
 
 ## Asennus
 
