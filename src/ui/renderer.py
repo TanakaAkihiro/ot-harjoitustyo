@@ -39,7 +39,50 @@ class Renderer:
         text_2 = text_font_2.render(text_content_2, True, self._colors["White"])
 
         self._screen.blit(text_2, (450, 300))
+        pygame.draw.line(self._screen, self._colors["White"], (450, 330), (895, 330))
+
+        text_font_3 = pygame.font.SysFont(None, 36)
+        text_content_3 = "Press '1' to show the game rules"
+        text_3 = text_font_3.render(text_content_3, True, self._colors["Red"])
+
+        self._screen.blit(text_3, (485, 400))
+        pygame.draw.line(self._screen, self._colors["White"], (485, 423), (860, 423))
         pygame.display.flip()
+
+    def show_game_rules(self, event_queue):
+        self._screen.fill(self._colors["Black"])
+
+        text_font = pygame.font.SysFont(None, 36)
+        text_content = "Players complete lines by moving differently shaped pieces, which descend onto the playing field."
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (120, 200))
+        
+        text_content = "The completed lines disappear and grant the player points, and the player can proceed to fill the vacated spaces."
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (40, 300))
+
+        text_content = "The game ends when the playing field is filled."
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (425, 400))
+
+        text_content = "Reference: Wikipedia (2021), https://en.wikipedia.org/wiki/Tetris"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (650, 600))
+
+        text_content = "Press 'R' to return"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        self._screen.blit(text, (30, 600))
+
+        pygame.display.flip()
+
+        while True:
+            event = event_queue.get()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    return
+                
+            elif event.type == pygame.QUIT:
+                exit()
 
     def show_screen(self):
         '''

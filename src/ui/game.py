@@ -57,6 +57,10 @@ class Game:
                     score = self._gameloop.start()
                     break
                 
+                if event.key == pygame.K_1:
+                    self._renderer.show_game_rules(self._event_queue)
+                    break
+                
             elif event.type == pygame.QUIT:
                 exit()
 

@@ -1,7 +1,5 @@
 from ui.game import Game
 
-
-
 def main():
     '''
     Käynnistää ohjelman.

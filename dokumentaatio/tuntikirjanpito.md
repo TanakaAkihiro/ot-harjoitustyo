@@ -22,4 +22,5 @@ päivä | aika(h) | mitä tein
 26.04 | 1 | Sekvenssikaavioiden luonti
 29.04 | 3 | Aloitusnäytön luominen sekä poistettujen rivien määrän näyttäminen
 29.04 | 1 | Uuden pelikierroksen aloittamisen toteutus
-Yhteensä | 39 |
+29.04 | 1 | Pelisääntöjen lisäys
+Yhteensä | 40 |
