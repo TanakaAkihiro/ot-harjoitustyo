@@ -51,10 +51,40 @@ class Game:
         self._renderer.show_start_screen()
         
         while True:
-            for event in self._event_queue.get_all():
-                if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_RETURN:
-                        self._gameloop.start()
+            event = self._event_queue.get()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    score = self._gameloop.start()
+                    break
                 
-                elif event.type == pygame.QUIT:
-                    exit()
+            elif event.type == pygame.QUIT:
+                exit()
+
+        self.initialize()
+        self.start_screen()
+    
+    def initialize(self):
+        FIELD = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+        self._field = Field(FIELD)
+        self._gameloop = Gameloop(self._event_queue, self._clock, self._renderer, self._field)

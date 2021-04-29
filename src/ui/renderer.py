@@ -38,7 +38,7 @@ class Renderer:
         text_content_2 = "Press 'Enter' to start playing"
         text_2 = text_font_2.render(text_content_2, True, self._colors["White"])
 
-        self._screen.blit(text_2, (520, 300))
+        self._screen.blit(text_2, (450, 300))
         pygame.display.flip()
 
     def show_screen(self):

@@ -28,7 +28,7 @@ class Gameloop:
                 self._emptied_rows += self._field.empty_filled_rows()
             else:
                 if self._field.get_field()[0][4] == 1 or self._field.get_field()[0][5] == 1:
-                    return
+                    return self._emptied_rows
 
                 if new_block:
                     self._block = Block()
