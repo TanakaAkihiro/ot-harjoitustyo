@@ -2,7 +2,7 @@
 
 ## Rakenne
 
-![Pakettikaavio](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Pakkauskaavio.jpg)
+![Pakettikaavio](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Pakkauskaavio.png)
 
 ## Päätoiminnallisuudet
 
