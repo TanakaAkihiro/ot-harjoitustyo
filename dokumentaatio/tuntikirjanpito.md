@@ -24,4 +24,5 @@ päivä | aika(h) | mitä tein
 29.04 | 1 | Uuden pelikierroksen aloittamisen toteutus
 29.04 | 1 | Pelisääntöjen lisäys
 01.05 | 2 | Bugien korjailua ja peliohjeiden lisäys
-Yhteensä | 40 |
+01.05 | 1 | Arkkitehtuurikuvauksen muokkailua
+Yhteensä | 42 |
