@@ -60,6 +60,10 @@ class Game:
                 if event.key == pygame.K_1:
                     self._renderer.show_game_rules(self._event_queue)
                     break
+
+                if event.key == pygame.K_2:
+                    self._renderer.show_control_options(self._event_queue)
+                    break
                 
             elif event.type == pygame.QUIT:
                 exit()

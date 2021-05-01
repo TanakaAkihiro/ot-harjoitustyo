@@ -152,7 +152,9 @@ class Block:
                     condition_3 = self.column + i[1] < 0
                     condition_4 = field[self.row +
                                         i[0]][self.column + i[1]] == 1
-                    if condition_1 or condition_2 or condition_3 or condition_4:
+                    if condition_1 or condition_2 or condition_3:
+                        return False
+                    if condition_4:
                         return False
             else:
                 for i in self._shapes[self._block_type][self._block_orientation + direction]:
@@ -161,7 +163,9 @@ class Block:
                     condition_3 = self.column + i[1] < 0
                     condition_4 = field[self.row +
                                         i[0]][self.column + i[1]] == 1
-                    if condition_1 or condition_2 or condition_3 or condition_4:
+                    if condition_1 or condition_2 or condition_3:
+                        return False
+                    if condition_4:
                         return False
         else:
             for i in self._shapes[self._block_type][self._block_orientation + direction]:
@@ -170,6 +174,8 @@ class Block:
                 condition_3 = self.column + i[1] < 0
                 condition_4 = field[self.row +
                                     i[0]][self.column + i[1]] == 1
-                if condition_1 or condition_2 or condition_3 or condition_4:
+                if condition_1 or condition_2 or condition_3:
+                    return False
+                if condition_4:
                     return False
         return True

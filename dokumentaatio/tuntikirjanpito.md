@@ -23,4 +23,5 @@ päivä | aika(h) | mitä tein
 29.04 | 3 | Aloitusnäytön luominen sekä poistettujen rivien määrän näyttäminen
 29.04 | 1 | Uuden pelikierroksen aloittamisen toteutus
 29.04 | 1 | Pelisääntöjen lisäys
+01.05 | 2 | Bugien korjailua ja peliohjeiden lisäys
 Yhteensä | 40 |

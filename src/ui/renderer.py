@@ -42,11 +42,19 @@ class Renderer:
         pygame.draw.line(self._screen, self._colors["White"], (450, 330), (895, 330))
 
         text_font_3 = pygame.font.SysFont(None, 36)
-        text_content_3 = "Press '1' to show the game rules"
+        text_content_3 = "Press '1' to see game rules"
         text_3 = text_font_3.render(text_content_3, True, self._colors["Red"])
 
-        self._screen.blit(text_3, (485, 400))
-        pygame.draw.line(self._screen, self._colors["White"], (485, 423), (860, 423))
+        self._screen.blit(text_3, (515, 400))
+        pygame.draw.line(self._screen, self._colors["White"], (515, 423), (825, 423))
+
+        text_font_4 = pygame.font.SysFont(None, 36)
+        text_content_4 = "Press '2' to see control options"
+        text_4 = text_font_4.render(text_content_4, True, self._colors["Red"])
+
+        self._screen.blit(text_4, (492, 450))
+        pygame.draw.line(self._screen, self._colors["White"], (492, 473), (852, 473))
+
         pygame.display.flip()
 
     def show_game_rules(self, event_queue):
@@ -72,6 +80,70 @@ class Renderer:
         text_content = "Press 'R' to return"
         text = text_font.render(text_content, True, self._colors["Red"])
         self._screen.blit(text, (30, 600))
+
+        pygame.display.flip()
+
+        while True:
+            event = event_queue.get()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    return
+                
+            elif event.type == pygame.QUIT:
+                exit()
+
+    def show_control_options(self, event_queue):
+        self._screen.fill(self._colors["Black"])
+
+        text_font = pygame.font.SysFont(None, 48)
+        text_content = "OPTIONS"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (600, 50))
+
+        text_font = pygame.font.SysFont(None, 36)
+        text_content = "MOVE RIGHT:"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (400, 200))
+
+        text_content = "RIGHT ARROW"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        self._screen.blit(text, (800, 200))
+
+        text_content = "MOVE LEFT:"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (400, 250))
+
+        text_content = "LEFT ARROW"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        self._screen.blit(text, (800, 250))
+
+        text_content = "ROTATE RIGHT:"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (400, 300))
+
+        text_content = "UP ARROW"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        self._screen.blit(text, (800, 300))
+
+        text_content = "ROTATE LEFT:"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (400, 350))
+
+        text_content = "Z"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        self._screen.blit(text, (800, 350))
+
+        text_content = "SOFT DROP:"
+        text = text_font.render(text_content, True, self._colors["White"])
+        self._screen.blit(text, (400, 400))
+
+        text_content = "DOWN ARROW"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        self._screen.blit(text, (800, 400))
+
+        text_content = "Press 'R' to return"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        self._screen.blit(text, (100, 600))
 
         pygame.display.flip()
 

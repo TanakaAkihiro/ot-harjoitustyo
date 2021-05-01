@@ -49,7 +49,7 @@ class Gameloop:
 
             self._renderer.draw_field(self._field.get_field(), self._block, self._emptied_rows)
 
-            self._clock.tick(10)
+            self._clock.tick(7)
 
     def _handle_events(self):
         '''
