@@ -21,6 +21,7 @@ Näkymien näyttämisestä vastaa luokka *Renderer*. Näppäimistön syötteist�
 
 ## Sovelluslogiikka
 Sovelluksen loogisen tietomallin muodostavat luokat *Gameloop*, *Block* ja *Field*. *Block* käsittelee laskeutuvia palikoita, *Field* käsittelee ruudukkoa sekä jo laskeutuneita palikoita ja *Gameloop* kokoaa nämä yhteen.
+![Luokkakaavio_sovelluslogiikka](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Sovelluslogiikka_luokkakaavio.png)
 
 ## Päätoiminnallisuudet
 
