@@ -28,7 +28,8 @@ class Renderer:
         text_1 = text_font_1.render(text_content_1, True, self._colors["Blue"])
 
         rect = text_1.get_rect()
-        pygame.draw.rect(self._screen, self._colors["White"], (rect[0] + 580, rect[1] + 130, rect[2], rect[3]))
+        pygame.draw.rect(
+            self._screen, self._colors["White"], (rect[0] + 580, rect[1] + 130, rect[2], rect[3]))
 
         pygame.display.flip()
 
@@ -36,24 +37,28 @@ class Renderer:
 
         text_font_2 = pygame.font.SysFont(None, 48)
         text_content_2 = "Press 'Enter' to start playing"
-        text_2 = text_font_2.render(text_content_2, True, self._colors["White"])
+        text_2 = text_font_2.render(
+            text_content_2, True, self._colors["White"])
 
         self._screen.blit(text_2, (450, 300))
-        pygame.draw.line(self._screen, self._colors["White"], (450, 330), (895, 330))
+        pygame.draw.line(
+            self._screen, self._colors["White"], (450, 330), (895, 330))
 
         text_font_3 = pygame.font.SysFont(None, 36)
         text_content_3 = "Press '1' to see game rules"
         text_3 = text_font_3.render(text_content_3, True, self._colors["Red"])
 
         self._screen.blit(text_3, (515, 400))
-        pygame.draw.line(self._screen, self._colors["White"], (515, 423), (825, 423))
+        pygame.draw.line(
+            self._screen, self._colors["White"], (515, 423), (825, 423))
 
         text_font_4 = pygame.font.SysFont(None, 36)
         text_content_4 = "Press '2' to see control options"
         text_4 = text_font_4.render(text_content_4, True, self._colors["Red"])
 
         self._screen.blit(text_4, (492, 450))
-        pygame.draw.line(self._screen, self._colors["White"], (492, 473), (852, 473))
+        pygame.draw.line(
+            self._screen, self._colors["White"], (492, 473), (852, 473))
 
         pygame.display.flip()
 
@@ -64,7 +69,7 @@ class Renderer:
         text_content = "Players complete lines by moving differently shaped pieces, which descend onto the playing field."
         text = text_font.render(text_content, True, self._colors["White"])
         self._screen.blit(text, (120, 200))
-        
+
         text_content = "The completed lines disappear and grant the player points, and the player can proceed to fill the vacated spaces."
         text = text_font.render(text_content, True, self._colors["White"])
         self._screen.blit(text, (40, 300))
@@ -88,7 +93,7 @@ class Renderer:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     return
-                
+
             elif event.type == pygame.QUIT:
                 exit()
 
@@ -152,7 +157,7 @@ class Renderer:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_r:
                     return
-                
+
             elif event.type == pygame.QUIT:
                 exit()
 
@@ -175,13 +180,15 @@ class Renderer:
         Piirtää ruudukon ja poistetut rivit pelin aikana.
         '''
         text_font = pygame.font.SysFont(None, 48)
-        text_content = "Cleared lines: "+ str(emptied_rows)
+        text_content = "Cleared lines: " + str(emptied_rows)
         text = text_font.render(text_content, True, self._colors["Black"])
         rect = text.get_rect()
 
-        pygame.draw.rect(self._screen, self._colors["White"], (rect[0] + (self._height*self._cell_size)*3/4, rect[1] + (self._width*self._cell_size)/3, rect[2], rect[3]))
+        pygame.draw.rect(self._screen, self._colors["White"], (rect[0] + (
+            self._height*self._cell_size)*3/4, rect[1] + (self._width*self._cell_size)/3, rect[2], rect[3]))
 
-        self._screen.blit(text, ((self._height*self._cell_size)*3/4, (self._width*self._cell_size)/3))
+        self._screen.blit(text, ((self._height*self._cell_size)
+                          * 3/4, (self._width*self._cell_size)/3))
 
         for row in range(self._height):
             for column in range(self._width):

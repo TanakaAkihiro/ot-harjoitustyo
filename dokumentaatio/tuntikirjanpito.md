@@ -25,4 +25,5 @@ päivä | aika(h) | mitä tein
 29.04 | 1 | Pelisääntöjen lisäys
 01.05 | 2 | Bugien korjailua ja peliohjeiden lisäys
 01.05 | 1 | Arkkitehtuurikuvauksen muokkailua
-Yhteensä | 42 |
+01.05 | 1 | Luokan EventHandler luonti
+Yhteensä | 43 |

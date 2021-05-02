@@ -1,6 +1,7 @@
 import pygame
-from ui.gameloop import Gameloop
+from services.gameloop import Gameloop
 from ui.event_queue import EventQueue
+from ui.event_handler import EventHandler
 from ui.renderer import Renderer
 from entities.clock import Clock
 from entities.field import Field
@@ -29,6 +30,7 @@ FIELD = [
 ]
 CELL_SIZE = 70
 
+
 class Game:
     def __init__(self):
         self._height = len(FIELD)
@@ -38,25 +40,29 @@ class Game:
         self._display_width = self._width*CELL_SIZE
 
         pygame.init()
-        self._screen = pygame.display.set_mode((self._display_height, self._display_width))
+        self._screen = pygame.display.set_mode(
+            (self._display_height, self._display_width))
         pygame.display.set_caption("Tetris")
 
         self._event_queue = EventQueue()
+        self._event_handler = EventHandler()
         self._clock = Clock()
-        self._renderer = Renderer(self._screen, self._height, self._width, self._coefficient, CELL_SIZE)
+        self._renderer = Renderer(
+            self._screen, self._height, self._width, self._coefficient, CELL_SIZE)
         self._field = Field(FIELD)
-        self._gameloop = Gameloop(self._event_queue, self._clock, self._renderer, self._field)
-    
+        self._gameloop = Gameloop(
+            self._event_queue, self._event_handler, self._clock, self._renderer, self._field)
+
     def start_screen(self):
         self._renderer.show_start_screen()
-        
+
         while True:
             event = self._event_queue.get()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     score = self._gameloop.start()
                     break
-                
+
                 if event.key == pygame.K_1:
                     self._renderer.show_game_rules(self._event_queue)
                     break
@@ -64,13 +70,13 @@ class Game:
                 if event.key == pygame.K_2:
                     self._renderer.show_control_options(self._event_queue)
                     break
-                
+
             elif event.type == pygame.QUIT:
                 exit()
 
         self.initialize()
         self.start_screen()
-    
+
     def initialize(self):
         FIELD = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -95,4 +101,5 @@ class Game:
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ]
         self._field = Field(FIELD)
-        self._gameloop = Gameloop(self._event_queue, self._clock, self._renderer, self._field)
+        self._gameloop = Gameloop(
+            self._event_queue, self._event_handler, self._clock, self._renderer, self._field)
