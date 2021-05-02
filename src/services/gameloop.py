@@ -28,7 +28,8 @@ class Gameloop:
             if self._field.check_filled_rows():
                 self._emptied_rows += self._field.empty_filled_rows()
             else:
-                if self._field.get_field()[0][4] == 1 or self._field.get_field()[0][5] == 1:
+                current_field = self._field.get_field()
+                if current_field[0][4] == 1 or current_field[0][5] == 1:
                     return self._emptied_rows
 
                 if new_block:
@@ -38,10 +39,10 @@ class Gameloop:
                 event = self._event_handler._handle_events(self._event_queue, self._renderer, self._field, self._block, self._emptied_rows)
 
                 if event is None:
-                    if not self._block.movable(self._field.get_field()):
+                    if not self._block.movable(current_field):
                         new_block = True
                         self._field.update(
-                            self._block.stop(self._field.get_field()))
+                            self._block.stop(current_field))
                         self._block = None
                     else:
                         self._block.move()

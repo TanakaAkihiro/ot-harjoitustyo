@@ -34,3 +34,6 @@ class EventHandler:
             if boolean:
                 return True
             return None
+
+        elif event.type == pygame.QUIT:
+            return False
