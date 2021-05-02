@@ -17,7 +17,7 @@ Käyttöliittymällä on kuusi näkymää:
 * Uuden tuloksen tallentaminen
 * Pelaaminen
 
-Näkymien näyttämisestä vastaa luokka *Renderer*. Näppäimistön syötteistä vastaa luokka *EventQueue*. Kumpikin luokka sijaitsee pakkauksessa *ui*.
+Näkymien näyttämisestä vastaa luokka *Renderer*. Näppäimistön syötteistä vastaa luokat *EventQueue* ja *EventHandler*. Kumpikin luokka sijaitsee pakkauksessa *ui*.
 
 ## Sovelluslogiikka
 Sovelluksen loogisen tietomallin muodostavat luokat *Gameloop*, *Block* ja *Field*. *Block* käsittelee laskeutuvia palikoita, *Field* käsittelee ruudukkoa sekä jo laskeutuneita palikoita ja *Gameloop* kokoaa nämä yhteen.
