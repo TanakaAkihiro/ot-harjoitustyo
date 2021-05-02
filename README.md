@@ -62,3 +62,5 @@ poetry run invoke lint
 ## Release
 
 [Viikko 5](https://github.com/TanakaAkihiro/ot-harjoitustyo/releases/tag/viikko5)
+
+[Viikko 6](https://github.com/TanakaAkihiro/ot-harjoitustyo/releases/tag/viikko6)
