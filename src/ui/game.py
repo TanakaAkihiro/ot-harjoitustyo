@@ -1,6 +1,7 @@
 import pygame
 from services.gameloop import Gameloop
 from services.clock import Clock
+from services.block_setter import BlockSetter
 from ui.event_queue import EventQueue
 from ui.event_handler import EventHandler
 from ui.renderer import Renderer
@@ -50,8 +51,9 @@ class Game:
         self._renderer = Renderer(
             self._screen, self._height, self._width, self._coefficient, CELL_SIZE)
         self._field = Field(FIELD)
+        self._block_setter = BlockSetter()
         self._gameloop = Gameloop(
-            self._event_queue, self._event_handler, self._clock, self._renderer, self._field)
+            self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
 
     def start_screen(self):
         self._renderer.show_start_screen()
@@ -102,4 +104,4 @@ class Game:
         ]
         self._field = Field(FIELD)
         self._gameloop = Gameloop(
-            self._event_queue, self._event_handler, self._clock, self._renderer, self._field)
+            self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)

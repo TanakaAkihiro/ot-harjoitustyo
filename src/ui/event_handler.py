@@ -2,7 +2,7 @@ import pygame
 
 
 class EventHandler:
-    def _handle_events(self, event_queue, renderer, field, block, emptied_rows):
+    def handle_events(self, event_queue, renderer, field, block, emptied_rows, current_field):
         '''
         Käsittelee näppäimistön tapahtumat
         '''
@@ -32,8 +32,13 @@ class EventHandler:
             renderer.draw_field(field.get_field(), block, emptied_rows)
             event_queue.clear_queue()
             if boolean:
-                return True
-            return None
+                return None
 
         elif event.type == pygame.QUIT:
-            return False
+            return False  
+        
+        if not block.movable(current_field):
+            field.update(block.stop(current_field))
+            return True
+        else:
+            block.move()

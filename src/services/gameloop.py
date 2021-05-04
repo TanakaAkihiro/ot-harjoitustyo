@@ -7,12 +7,13 @@ class Gameloop:
     Luokka yhdelle pelikierrokselle.
     '''
 
-    def __init__(self, event_queue, event_handler, clock, renderer, field):
+    def __init__(self, event_queue, event_handler, clock, renderer, field, block_setter):
         self._field = field
         self._event_queue = event_queue
         self._event_handler = event_handler
         self._clock = clock
         self._renderer = renderer
+        self._block_setter = block_setter
 
         self._block = None
         self._emptied_rows = 0
@@ -33,19 +34,14 @@ class Gameloop:
                     return self._emptied_rows
 
                 if new_block:
-                    self._block = Block()
+                    self._block = self._block_setter.set_new_block()
                     new_block = False
 
-                event = self._event_handler._handle_events(self._event_queue, self._renderer, self._field, self._block, self._emptied_rows)
+                event = self._event_handler.handle_events(self._event_queue, self._renderer, self._field, self._block, self._emptied_rows, current_field)
 
-                if event is None:
-                    if not self._block.movable(current_field):
-                        new_block = True
-                        self._field.update(
-                            self._block.stop(current_field))
-                        self._block = None
-                    else:
-                        self._block.move()
+                if event:
+                    self._block = None
+                    new_block = True
                 elif event is False:
                     sys.exit()
 
