@@ -29,4 +29,5 @@ päivä | aika(h) | mitä tein
 04.05 | 1 | Repositorin siivoamista
 04.05 | 4 | Injektoidun luokan testien muodostaminen/alustaminen
 04.05 | 2 | Lisätty ja muokkailtu Docstringia sekä siivottu repositoria
-Yhteensä | 50 |
+04.05 | 1 | Käyttöohjeen muokkailua
+Yhteensä | 51 |
