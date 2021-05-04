@@ -24,6 +24,8 @@ Alkunäkymässä voit tehdä neljä toimintoa:
 
 Alkunäkymään voi palautua painamalla R-näppäintä.
 
+![Alkunäkymä](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-alkunaytto.png)
+
 ## Pelin aikana
 
 Pelaaja voi liikuttaa palikoita nuolinäppäimillä oikealle(→-key), vasemmalle(←-key) ja ruudukon verran alaspäin(🠃-key).
