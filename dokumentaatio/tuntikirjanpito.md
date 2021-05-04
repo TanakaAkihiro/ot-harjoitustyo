@@ -28,4 +28,5 @@ päivä | aika(h) | mitä tein
 01.05 | 1 | Luokan EventHandler luonti
 04.05 | 1 | Repositorin siivoamista
 04.05 | 4 | Injektoidun luokan testien muodostaminen/alustaminen
-Yhteensä | 48 |
+04.05 | 2 | Lisätty ja muokkailtu Docstringia sekä siivottu repositoria
+Yhteensä | 50 |

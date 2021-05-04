@@ -2,9 +2,20 @@ import pygame
 
 
 class EventHandler:
-    def handle_events(self, event_queue, renderer, field, block, emptied_rows, current_field):
-        '''
-        Käsittelee näppäimistön tapahtumat
+    def handle_events(self, event_queue, renderer, field, block, emptied_rows):
+        '''Käsittelee näppäimistön tapahtumia
+        
+        Args:
+            event_queue: EventQueue-olio
+            renderer: Renderer-olio
+            field: Field-olio
+            block: Block-olio (laskeutuva palikka)
+            emptied_rows: Tyhjennettyjen rivien määrä
+
+        Returns:
+            True, jos laskeutuva palikka on laskeutunut ja halutaan luoda uusi palikka.
+            False, jos käyttäjä keskeyttää sovelluksen ajamisen.
+            None muulloin.
         '''
 
         event = event_queue.get()
@@ -37,6 +48,7 @@ class EventHandler:
         elif event.type == pygame.QUIT:
             return False  
         
+        current_field = field.get_field()
         if not block.movable(current_field):
             field.update(block.stop(current_field))
             return True

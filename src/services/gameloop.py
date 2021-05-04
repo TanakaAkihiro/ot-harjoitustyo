@@ -37,7 +37,7 @@ class Gameloop:
                     self._block = self._block_setter.set_new_block()
                     new_block = False
 
-                event = self._event_handler.handle_events(self._event_queue, self._renderer, self._field, self._block, self._emptied_rows, current_field)
+                event = self._event_handler.handle_events(self._event_queue, self._renderer, self._field, self._block, self._emptied_rows)
 
                 if event:
                     self._block = None

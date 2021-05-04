@@ -33,7 +33,26 @@ CELL_SIZE = 70
 
 
 class Game:
+    '''Luokka, joka siirtelee sovelluksen näkymää alkunäytön, pelisääntöjen, peliohjeiden ja pelitilan välillä.
+
+    Attributes:
+        height: Ruudukon korkeus
+        width: Ruudukon leveys
+        coefficient: Ruudukon kerroin
+        display_height: Näytön korkeus
+        display_width: Näytön leveys
+        screen: Näyttö
+        event_queue: EventQueue-olio
+        clock: Clock-olio
+        renderer: Renderer-olio
+        field: Field-olio
+        block_setter: BlockSetter-olio
+        gameloop: Gameloop-olio
+    '''
     def __init__(self):
+        '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
+        '''
+
         self._height = len(FIELD)
         self._width = len(FIELD[0])
         self._coefficient = CELL_SIZE//2.5
@@ -56,6 +75,7 @@ class Game:
             self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
 
     def start_screen(self):
+        '''Näyttää aloitusnäytön ja siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella'''
         self._renderer.show_start_screen()
 
         while True:
@@ -80,6 +100,7 @@ class Game:
         self.start_screen()
 
     def initialize(self):
+        '''Alustaa ruudukon uutta pelikierrosta varten'''
         FIELD = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],

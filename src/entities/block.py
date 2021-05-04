@@ -2,8 +2,7 @@ from random import randint
 
 
 class Block:
-    '''
-    Luokka palikoiden käsittelyyn
+    '''Luokka, joka käsittelee laskeutuvaa palikkaa
     ...
 
     Attribuutit
@@ -70,9 +69,12 @@ class Block:
         self.column = 4
 
     def move(self, direction=None):
-        '''
-        Liikuttaa palikan määrättyyn suuntaan.
-        Jos suuntaa ei ole määritelty, palikka liikkuu yhen rivin verran alaspäin.
+        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka liikkuu yhen rivin verran alaspäin.
+
+        Args
+        ----
+        direction: tuple
+            Määrittää laskeutuvan palikan suunnan, johon liikkuu.
         '''
 
         if direction is None:
@@ -83,10 +85,15 @@ class Block:
             self.column += direction[1]
 
     def movable(self, field, direction=None):
-        '''
-        Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan
-        ja palauttaa totuusarvon.
-        Jos suuntaa ei ole määritelty, suuntana oletetaan yhden rivin verran alempaa suuntaa.
+        '''Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan. Jos suuntaa ei ole määritelty, suuntana oletetaan yhden rivin verran alempaa suuntaa.
+        
+        Args:
+        field: Field-olio
+        direction: Määrittää laskeutuvan palikan suunnan, johon liikkuu.
+
+        Returns:
+            True, jos palikalla ei ole esteitä määrätyssä suunnassa.
+            False muulloin.
         '''
 
         if direction is None:
@@ -110,16 +117,23 @@ class Block:
         return True
 
     def stop(self, field):
-        '''
-        Palauttaa ruudukon, jossa palikka pysäytetään liikkumasta.
+        '''Lisää laskeutuneen palikan ruudukolle
+
+        Args:
+            field: Ruudukko taulukkona
+        
+        Returns:
+            Uuden ruudukon taulukkona
         '''
         for i in self.shape:
             field[self.row + i[0]][self.column + i[1]] = 1
         return field
 
     def rotate(self, direction):
-        '''
-        Muuttaa palikan asentoa.
+        '''Muuttaa palikan asentoa.
+        
+        Args:
+            direction: Suunta, mihinpäin pelaaja haluaa kääntää palikan
         '''
         if direction == 1:
             if self._block_orientation == 3:
@@ -137,8 +151,15 @@ class Block:
                 self.shape = self._shapes[self._block_type][self._block_orientation]
 
     def rotatable(self, field, direction):
-        '''
-        Tarkistaa, onko mahdollista muuttaa palikan asentoa määrättyyn suuntaan.
+        '''Tarkistaa, onko mahdollista kääntää palikan asentoa määrättyyn suuntaan.
+
+        Args:
+            field: Ruudukko taulukkona
+            direction: Suunta, mihinpäin pelaaja haluaa kääntää palikan
+        
+        Returns:
+            True, jos kääntäminen on mahdollista
+            False muulloin
         '''
         if self._block_type == 1:
             return False

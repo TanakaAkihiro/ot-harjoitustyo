@@ -3,11 +3,27 @@ import pygame
 
 class Renderer:
 
-    '''
-    Luokka, joka käsittelee näytön piirtämistä.
+    '''Luokka, joka käsittelee näytön piirtämistä.
+
+    Attributes:
+        screen: Näyttö
+        height: Ruudukon korkeus
+        width: Ruudukon leveys
+        coefficient: Ruudukon kerroin
+        cell_size: Näytön kerroin
+        colors: Sanakirja väreille
     '''
 
     def __init__(self, screen, height, width, coefficient, cell_size):
+        '''Luokan konstruktori, joka luo uuden näytön piirtäjän
+
+        Args:
+            screen: Näyttö
+            height: Ruudukon korkeus
+            width: Ruudukon leveys
+            coefficient: Ruudukon kerroin
+            cell_size: Näytön kerroin
+        '''
         self._screen = screen
         self._height = height
         self._width = width
@@ -18,8 +34,7 @@ class Renderer:
             192, 192, 192), "Blue": (0, 0, 128), "Red": (200, 0, 0)}
 
     def show_start_screen(self):
-        '''
-        Näyttää sovelluksen aloitusnäkymän
+        '''Näyttää sovelluksen aloitusnäkymän
         '''
         self._screen.fill(self._colors["Black"])
 
@@ -63,6 +78,11 @@ class Renderer:
         pygame.display.flip()
 
     def show_game_rules(self, event_queue):
+        '''Näyttää pelisäännöt
+
+        Args:
+            event_queue: EventQueue-olio, jonka avulla pääsee pelisäännön näkymästä alkunäyttöön
+        '''
         self._screen.fill(self._colors["Black"])
 
         text_font = pygame.font.SysFont(None, 36)
@@ -98,6 +118,11 @@ class Renderer:
                 exit()
 
     def show_control_options(self, event_queue):
+        '''Näyttää peliohjeet
+
+        Args:
+            event_queue: EventQueue-olio, jonka avulla pystyy palaamaan alkunäyttöön
+        '''
         self._screen.fill(self._colors["Black"])
 
         text_font = pygame.font.SysFont(None, 48)
@@ -162,8 +187,7 @@ class Renderer:
                 exit()
 
     def show_screen(self):
-        '''
-        Piirtää valkoisen taustan sekä ruudukon.
+        '''Piirtää valkoisen taustan ja ruudukon.
         '''
 
         self._screen.fill(self._colors["White"])
@@ -176,8 +200,12 @@ class Renderer:
         pygame.display.flip()
 
     def draw_field(self, field, block, emptied_rows):
-        '''
-        Piirtää ruudukon ja poistetut rivit pelin aikana.
+        '''Piirtää ruudukon pelin aikana.
+
+        Args:
+            field: Field-olio
+            block: Block-olio
+            emptied_rows: Tyhjennettyjen rivien määrä
         '''
         text_font = pygame.font.SysFont(None, 48)
         text_content = "Cleared lines: " + str(emptied_rows)

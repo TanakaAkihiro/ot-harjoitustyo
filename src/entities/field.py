@@ -1,34 +1,40 @@
 class Field:
+    '''Luokka ruudukon käsittelyyn.
 
-    '''
-    Luokka ruudukon käsittelyyn.
-    ...
-
-    Attribuutti
-    -----------
-    field: list
-        taulukko tetriksen ruudukosta
+    Attributes:
+        field: Tetriksen ruudukko taulukkona
     '''
 
     def __init__(self, field):
+        '''Luokan konstruktori, joka luo uuden ruudukon
+
+        Args:
+            field: Ruudukko taulukkona
+        '''
         self._field = field
 
     def get_field(self):
-        '''
-        Palauttaa ruudukon.
+        '''Palauttaa ruudukon
+
+        Returns:
+            Ruudukon taulukkona
         '''
         return self._field
 
     def update(self, new_field):
-        '''
-        Päivittää ruudukon.
+        '''Päivittää ruudukon.
+        
+        Args:
+            new_field: Uusi ruudukko taulukkona
         '''
 
         self._field = new_field
 
     def empty_filled_rows(self):
-        '''
-        Tyhjentää täytetyt rivit.
+        '''Tyhjentää täytetyt rivit
+        
+        Returns:
+            Tyhjennettyjen rivien määrä
         '''
 
         count = 0
@@ -42,8 +48,11 @@ class Field:
         return count
 
     def check_filled_rows(self):
-        '''
-        Palauttaa True, jos ruudukossa on täytetty rivi.
+        '''Etsii täytettyjä rivejä ruudukosta
+        
+        Returns:
+            True, jos ruudukossa on täytetty rivi.
+            False muulloin
         '''
         for row in self._field:
             if row == [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]:

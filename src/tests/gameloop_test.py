@@ -26,7 +26,7 @@ class StubEventQueue:
         self.events = []
 
 class StubEventHandler:
-    def handle_events(self, event_queue, renderer, field, block, emptied_rows, current_field):
+    def handle_events(self, event_queue, renderer, field, block, emptied_rows):
         if not block.movable(field):
             return True
         if event_queue.get().type == pygame.QUIT:
