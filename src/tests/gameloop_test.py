@@ -1,4 +1,5 @@
 import unittest
+import pygame
 from services.gameloop import Gameloop
 from entities.field import Field
 
@@ -39,7 +40,7 @@ class StubRenderer:
         pass
 
 class StubBlock:
-    def movable(field):
+    def movable(self, field):
         for i in field.get_field():
             if i != [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]:
                 return False
@@ -49,13 +50,9 @@ class StubBlockSetter:
         return StubBlock()
 
 class TestGameloop(unittest.TestCase):
-    def test_can_exit_from_the_application(self):
-        events = [
-            StubEvent(pygame.QUIT, None)
-        ]
-        
+    def test_game_ends_when_there_is_a_block_on_either_two_center_squares_in_the_top_row(self):        
         field = [
-            [0,0,0,0,0,0,0,0,0,0],
+            [0,0,0,0,1,1,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0,0,0],
@@ -63,7 +60,7 @@ class TestGameloop(unittest.TestCase):
         ]
 
         gameloop = Gameloop(
-            StubEventQueue(events),
+            StubEventQueue([]),
             StubEventHandler(),
             StubClock(),
             StubRenderer(),
@@ -71,6 +68,7 @@ class TestGameloop(unittest.TestCase):
             StubBlockSetter()            
         )
 
-        gameloop.start()
-
-        
+        result = gameloop.start()
+        self.assertEqual(result, 0)
+    
+    
