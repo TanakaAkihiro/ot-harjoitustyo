@@ -23,7 +23,7 @@ class Field:
 
     def update(self, new_field):
         '''Päivittää ruudukon.
-        
+
         Args:
             new_field: Uusi ruudukko taulukkona
         '''
@@ -32,7 +32,7 @@ class Field:
 
     def empty_filled_rows(self):
         '''Tyhjentää täytetyt rivit
-        
+
         Returns:
             Tyhjennettyjen rivien määrä
         '''
@@ -49,7 +49,7 @@ class Field:
 
     def check_filled_rows(self):
         '''Etsii täytettyjä rivejä ruudukosta
-        
+
         Returns:
             True, jos ruudukossa on täytetty rivi.
             False muulloin

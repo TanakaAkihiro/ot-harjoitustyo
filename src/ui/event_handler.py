@@ -4,7 +4,7 @@ import pygame
 class EventHandler:
     def handle_events(self, event_queue, renderer, field, block, emptied_rows):
         '''Käsittelee näppäimistön tapahtumia
-        
+
         Args:
             event_queue: EventQueue-olio
             renderer: Renderer-olio
@@ -46,8 +46,8 @@ class EventHandler:
                 return None
 
         elif event.type == pygame.QUIT:
-            return False  
-        
+            return False
+
         current_field = field.get_field()
         if not block.movable(current_field):
             field.update(block.stop(current_field))

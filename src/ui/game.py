@@ -49,6 +49,7 @@ class Game:
         block_setter: BlockSetter-olio
         gameloop: Gameloop-olio
     '''
+
     def __init__(self):
         '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
         '''

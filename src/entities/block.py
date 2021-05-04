@@ -86,7 +86,7 @@ class Block:
 
     def movable(self, field, direction=None):
         '''Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan. Jos suuntaa ei ole määritelty, suuntana oletetaan yhden rivin verran alempaa suuntaa.
-        
+
         Args:
         field: Field-olio
         direction: Määrittää laskeutuvan palikan suunnan, johon liikkuu.
@@ -121,7 +121,7 @@ class Block:
 
         Args:
             field: Ruudukko taulukkona
-        
+
         Returns:
             Uuden ruudukon taulukkona
         '''
@@ -131,7 +131,7 @@ class Block:
 
     def rotate(self, direction):
         '''Muuttaa palikan asentoa.
-        
+
         Args:
             direction: Suunta, mihinpäin pelaaja haluaa kääntää palikan
         '''
@@ -156,7 +156,7 @@ class Block:
         Args:
             field: Ruudukko taulukkona
             direction: Suunta, mihinpäin pelaaja haluaa kääntää palikan
-        
+
         Returns:
             True, jos kääntäminen on mahdollista
             False muulloin
