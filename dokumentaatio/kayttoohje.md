@@ -22,9 +22,13 @@ Alkunäkymässä voit tehdä neljä toimintoa:
 3. Lue pelin ohjeet
 4. Tarkastele/tyhjennä pistetaulua, jossa on edellisten pelaajien pistetulokset
 
-Alkunäkymään voi palautua painamalla R-näppäintä.
-
 ![Alkunäkymä](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-alkunaytto.png)
+
+Alkunäkymään voi palata painamalla R-näppäintä.
+
+![Pelisäännöt](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-pelisaannot.png)
+
+![Peliohjeet](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-peliohjeet.png)
 
 ## Pelin aikana
 
