@@ -1,9 +1,9 @@
 import pygame
 from services.gameloop import Gameloop
+from services.clock import Clock
 from ui.event_queue import EventQueue
 from ui.event_handler import EventHandler
 from ui.renderer import Renderer
-from entities.clock import Clock
 from entities.field import Field
 
 FIELD = [

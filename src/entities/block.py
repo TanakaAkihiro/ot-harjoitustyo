@@ -94,8 +94,6 @@ class Block:
                 next_block = self.row + i[0] + 1
                 if next_block > len(field) - 1:
                     return False
-                if next_block < 0:
-                    return "gameover"
                 if field[self.row+i[0]+1][self.column+i[1]] == 1:
                     return False
         else:

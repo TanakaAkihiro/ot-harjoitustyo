@@ -26,4 +26,5 @@ päivä | aika(h) | mitä tein
 01.05 | 2 | Bugien korjailua ja peliohjeiden lisäys
 01.05 | 1 | Arkkitehtuurikuvauksen muokkailua
 01.05 | 1 | Luokan EventHandler luonti
-Yhteensä | 43 |
+04.05 | 1 | Repositorin siivoamista
+Yhteensä | 44 |
