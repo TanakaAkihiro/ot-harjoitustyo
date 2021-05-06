@@ -33,4 +33,5 @@ päivä | aika(h) | mitä tein
 05.05 | 1 | Bugien etsimistä
 06.05 | 2 | Tarkistus sovelluksen toimivuudesta etätyöpöydällä
 06.05 | 1 | Sovelluslogiikan muokkailua
-Yhteensä | 54 |
+06.05 | 2 | Pausen käyttöönotto
+Yhteensä | 56 |

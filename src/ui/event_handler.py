@@ -78,6 +78,14 @@ class EventHandler:
             elif event.key == pygame.K_z:
                 if block.rotatable(field.get_field(), -1):
                     block.rotate(-1)
+            elif event.key == pygame.K_p:
+                while True:
+                    renderer.show_pause()
+                    event = event_queue.get()
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_p:
+                            renderer.show_screen()
+                            break
 
             renderer.draw_field(field.get_field(), block, emptied_rows)
             event_queue.clear_queue()

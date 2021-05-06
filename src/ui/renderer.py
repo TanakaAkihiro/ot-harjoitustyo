@@ -199,6 +199,10 @@ class Renderer:
 
         self._screen.blit(text, ((self._height*self._cell_size)
                           * 3/4, (self._width*self._cell_size)/3))
+        
+        text_content = "Press 'P' to pause"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        self._screen.blit(text, ((self._height*self._cell_size)/10, (self._width*self._cell_size)/3))
 
         for row in range(self._height):
             for column in range(self._width):
@@ -212,4 +216,23 @@ class Renderer:
                                 self._screen, self._colors["Blue"], square)
                 if field[row][column] == 1:
                     pygame.draw.rect(self._screen, self._colors["Red"], square)
+        pygame.display.flip()
+
+    def show_pause(self):
+        '''Näyttää pause-näytön
+        
+        '''
+        self._screen.fill(self._colors["Black"])
+
+        text_font = pygame.font.SysFont("comicsansms", 48)
+        text_content = "Paused"
+        text = text_font.render(text_content, True, self._colors["White"])
+
+        self._screen.blit(text, (600, 300))
+
+        text_font = pygame.font.SysFont(None, 36)
+        text_content = "Press 'P' to continue"
+        text = text_font.render(text_content, True, self._colors["Red"])
+
+        self._screen.blit(text, (560, 450))
         pygame.display.flip()
