@@ -34,4 +34,5 @@ päivä | aika(h) | mitä tein
 06.05 | 2 | Tarkistus sovelluksen toimivuudesta etätyöpöydällä
 06.05 | 1 | Sovelluslogiikan muokkailua
 06.05 | 2 | Pausen käyttöönotto
-Yhteensä | 56 |
+06.05 | 1 | Uusi tapa tarkistaa pelikierroksen loppua
+Yhteensä | 57 |

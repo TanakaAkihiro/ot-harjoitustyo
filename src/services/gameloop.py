@@ -29,12 +29,10 @@ class Gameloop:
             if self._field.check_filled_rows():
                 self._emptied_rows += self._field.empty_filled_rows()
             else:
-                current_field = self._field.get_field()
-                if current_field[0][4] == 1 or current_field[0][5] == 1:
-                    return self._emptied_rows
-
                 if new_block:
                     self._block = self._block_setter.set_new_block()
+                    if self._block.check_game_over(self._field.get_field()):
+                        return self._emptied_rows
                     new_block = False
 
                 event = self._event_handler.handle_game_events(

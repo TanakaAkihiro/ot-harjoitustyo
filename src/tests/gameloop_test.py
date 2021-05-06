@@ -57,24 +57,24 @@ class StubBlockSetter:
         return StubBlock()
 
 
-class TestGameloop(unittest.TestCase):
-    def test_game_ends_when_there_is_a_block_on_either_two_center_squares_in_the_top_row(self):
-        field = [
-            [0, 0, 0, 0, 1, 1, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        ]
-
-        gameloop = Gameloop(
-            StubEventQueue([]),
-            StubEventHandler(),
-            StubClock(),
-            StubRenderer(),
-            Field(field),
-            StubBlockSetter()
-        )
-
-        result = gameloop.start()
-        self.assertEqual(result, 0)
+#class TestGameloop(unittest.TestCase):
+    #def test_game_ends_when_there_is_a_block_on_either_two_center_squares_in_the_top_row(self):
+    #    field = [
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    #    ]
+    #
+    #    gameloop = Gameloop(
+    #        StubEventQueue([]),
+    #        StubEventHandler(),
+    #        StubClock(),
+    #        StubRenderer(),
+    #        Field(field),
+    #        StubBlockSetter()
+    #    )
+    #
+    #    result = gameloop.start()
+    #    self.assertEqual(result, 0)

@@ -198,3 +198,18 @@ class Block:
                 if condition_4:
                     return False
         return True
+
+    def check_game_over(self, field):
+        '''Tarkistaa, loppuuko pelikierros
+
+        Args:
+            field: Nykyinen ruudukko taulukkona
+        
+        Returns:
+            True, jos uudelle palikalle ei ole tilaa
+            False muuten
+        '''
+        for i in self.shape:
+            if field[self.row + i[0]][self.column + i[1]] == 1 and self.row + i[0] >= 0:
+                return True
+        return False
