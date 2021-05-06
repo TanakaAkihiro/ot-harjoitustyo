@@ -1,9 +1,48 @@
+import sys
 import pygame
 
 
 class EventHandler:
-    def handle_events(self, event_queue, renderer, field, block, emptied_rows):
-        '''Käsittelee näppäimistön tapahtumia
+    def handle_menu_events(self, event_queue, renderer, gameloop):
+        ''' Käsittelee näppäimistön tapahtumia alkunäkymässä
+        Args:
+            event_queue: EventQueue-olio
+            renderer: Renderer-olio
+            gameloop: Gameloop-olio
+        '''
+
+        while True:
+            event = event_queue.get()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    score = gameloop.start()
+                    return score
+
+                if event.key == pygame.K_1:
+                    renderer.show_game_rules()
+                    while True:
+                        event = event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                        elif event.type == pygame.QUIT:
+                            sys.exit()
+
+                if event.key == pygame.K_2:
+                    renderer.show_control_options()
+                    while True:
+                        event = event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                        elif event.type == pygame.QUIT:
+                            sys.exit()
+
+            elif event.type == pygame.QUIT:
+                exit()
+        
+    def handle_game_events(self, event_queue, renderer, field, block, emptied_rows):
+        '''Käsittelee näppäimistön tapahtumia pelin aikana
 
         Args:
             event_queue: EventQueue-olio

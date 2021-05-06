@@ -77,7 +77,7 @@ class Renderer:
 
         pygame.display.flip()
 
-    def show_game_rules(self, event_queue):
+    def show_game_rules(self):
         '''Näyttää pelisäännöt
 
         Args:
@@ -108,16 +108,7 @@ class Renderer:
 
         pygame.display.flip()
 
-        while True:
-            event = event_queue.get()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r:
-                    return
-
-            elif event.type == pygame.QUIT:
-                exit()
-
-    def show_control_options(self, event_queue):
+    def show_control_options(self):
         '''Näyttää peliohjeet
 
         Args:
@@ -176,15 +167,6 @@ class Renderer:
         self._screen.blit(text, (100, 600))
 
         pygame.display.flip()
-
-        while True:
-            event = event_queue.get()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_r:
-                    return
-
-            elif event.type == pygame.QUIT:
-                exit()
 
     def show_screen(self):
         '''Piirtää valkoisen taustan ja ruudukon.

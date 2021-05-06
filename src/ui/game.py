@@ -79,23 +79,7 @@ class Game:
         '''Näyttää aloitusnäytön ja siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella'''
         self._renderer.show_start_screen()
 
-        while True:
-            event = self._event_queue.get()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RETURN:
-                    score = self._gameloop.start()
-                    break
-
-                if event.key == pygame.K_1:
-                    self._renderer.show_game_rules(self._event_queue)
-                    break
-
-                if event.key == pygame.K_2:
-                    self._renderer.show_control_options(self._event_queue)
-                    break
-
-            elif event.type == pygame.QUIT:
-                exit()
+        self._event_handler.handle_menu_events(self._event_queue, self._renderer, self._gameloop)
 
         self.initialize()
         self.start_screen()

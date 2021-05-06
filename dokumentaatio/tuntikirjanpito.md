@@ -31,4 +31,6 @@ päivä | aika(h) | mitä tein
 04.05 | 2 | Lisätty ja muokkailtu Docstringia sekä siivottu repositoria
 04.05 | 1 | Käyttöohjeen muokkailua
 05.05 | 1 | Bugien etsimistä
-Yhteensä | 52 |
+06.05 | 2 | Tarkistus sovelluksen toimivuudesta etätyöpöydällä
+06.05 | 1 | Sovelluslogiikan muokkailua
+Yhteensä | 54 |
