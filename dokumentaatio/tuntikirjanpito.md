@@ -35,4 +35,5 @@ päivä | aika(h) | mitä tein
 06.05 | 1 | Sovelluslogiikan muokkailua
 06.05 | 2 | Pausen käyttöönotto
 06.05 | 1 | Uusi tapa tarkistaa pelikierroksen loppua
-Yhteensä | 57 |
+07.05 | 2 | Gameloop_testin muokkaamista
+Yhteensä | 59 |

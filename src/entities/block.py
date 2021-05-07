@@ -210,6 +210,6 @@ class Block:
             False muuten
         '''
         for i in self.shape:
-            if field[self.row + i[0]][self.column + i[1]] == 1 and self.row + i[0] >= 0:
+            if field[self.row + i[0] + 1][self.column + i[1]] == 1:
                 return True
         return False

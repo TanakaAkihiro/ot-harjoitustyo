@@ -148,3 +148,17 @@ class TestBlock(unittest.TestCase):
         ]
         result = self.block.rotatable(self.field, -1)
         self.assertFalse(result)
+
+    def test_true_when_game_is_over(self):
+        self.field = [
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
+        ]
+        result = self.block.check_game_over(self.field)
+        self.assertTrue(result)
+
+    def test_false_when_game_is_not_over(self):
+        result = self.block.check_game_over(self.field)
+        self.assertFalse(result)
