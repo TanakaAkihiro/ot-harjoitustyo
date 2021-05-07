@@ -7,7 +7,7 @@ katoavat ja rivin yläpuolella olevat palikat laskeutuvat rivin verran alas. Pel
 pisteitä kadottamalla palikoita.
 
 ## Käyttäjät
-Sovelluksella on yksi käyttäjärooli eli *normaali käyttäjä*.
+Sovelluksella on ainoastaan yksi käyttäjärooli: pelaaja.
 
 ## Perusversion tarjoama toiminnallisuus
 ### Ennen pelin aloittamista
