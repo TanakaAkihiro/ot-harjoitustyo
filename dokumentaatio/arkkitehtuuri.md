@@ -28,6 +28,14 @@ Luokalla *Block* on jokaisen mahdollisen palikkatyypin asennot kolminkerroksises
 *block_typen* arvo muuttuu ainoastaan silloin, kun ruudukkoon ilmestyy uusi palikka. *block_orientation* määrittää laskeutuvan palikan asennon, ja se muuttuu, 
 pelaajan näppäinsyötteen perusteella. Attribuutit *shape*, *row* ja *column* määrittävät laskeutuvan palikan kunkin osan koordinaatit ruudukolla.
 
+Luokan *Block* metodit ovat seuraavat:
+* `move(direction)`
+* `movable(field, direction)`
+* `stop(field)`
+* `rotate(direction)`
+* `rotatable(field, direction)`
+* `check_game_over(field)`
+
 Luokka *Field* ylläpitää ruudukkoa, jossa laskeutuneiden palikkojen koordinaatit ovat tiedossa.
 
 ## Päätoiminnallisuudet
