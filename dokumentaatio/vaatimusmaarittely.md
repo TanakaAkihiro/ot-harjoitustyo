@@ -11,15 +11,15 @@ Sovelluksella on ainoastaan yksi käyttäjärooli: pelaaja.
 
 ## Perusversion tarjoama toiminnallisuus
 ### Ennen pelin aloittamista
-* Pelaaja voi lukea pelin säännöt (**Tehty**)
-* Pelaaja voi lukea peliohjeet (Miten liikuttaa palikoita yms.) (**Tehty**)
+* Pelaaja voi lukea pelin säännöt
+* Pelaaja voi lukea peliohjeet (Miten liikuttaa palikoita yms.)
 * Pelaaja voi tarkastella edellisten pelaajien pistemäärät suuruusjärjestyksessä
-* Pelaaja voi aloittaa pelin pelaamisen (**Tehty**)
+* Pelaaja voi aloittaa pelin pelaamisen
 
 ### Pelin aikana
-* Pelaaja voi liikutella ja käännellä tippuvia palikoita (**Tehty**)
-* Pelaaja näkee oman pistemäärän (**Tehty**)
-* Pelaaja saa kadotettua palikoita täyttämällä tietyn rivin kohtia palikoilla (**Tehty**)
+* Pelaaja voi liikutella ja käännellä tippuvia palikoita
+* Pelaaja näkee oman pistemäärän
+* Pelaaja saa kadotettua palikoita täyttämällä tietyn rivin kohtia palikoilla
 
 
 ## Jatkokehitysideoita
