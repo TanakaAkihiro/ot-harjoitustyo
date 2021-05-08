@@ -36,6 +36,8 @@ Pelaaja voi liikuttaa palikoita nuolinäppäimillä oikealle(→-key), vasemmall
 
 Pelaaja voi muuttaa palikan suuntaa myötäpäivään(🠁-key) sekä vastapäivään(z-key).
 
+Pelaaja voi tauottaa pelaamisen panamalla P-näppäintä
+
 ## Pelin loppuessa
 
 Pelaaja voi näppäillä nimen, jotta pistetulos tallennetaan tiedostoon.
