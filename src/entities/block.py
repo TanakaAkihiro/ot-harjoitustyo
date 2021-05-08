@@ -162,10 +162,10 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row +
-                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3:
                         return False
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_4:
                         return False
             else:
@@ -173,10 +173,10 @@ class Block:
                     condition_1 = self.row + i[0] > len(field) - 1
                     condition_2 = self.column + i[1] > len(field[0]) - 1
                     condition_3 = self.column + i[1] < 0
-                    condition_4 = field[self.row +
-                                        i[0]][self.column + i[1]] == 1
                     if condition_1 or condition_2 or condition_3:
                         return False
+                    condition_4 = field[self.row +
+                                        i[0]][self.column + i[1]] == 1
                     if condition_4:
                         return False
         else:
@@ -184,10 +184,10 @@ class Block:
                 condition_1 = self.row + i[0] > len(field) - 1
                 condition_2 = self.column + i[1] > len(field[0]) - 1
                 condition_3 = self.column + i[1] < 0
-                condition_4 = field[self.row +
-                                    i[0]][self.column + i[1]] == 1
                 if condition_1 or condition_2 or condition_3:
                     return False
+                condition_4 = field[self.row +
+                                    i[0]][self.column + i[1]] == 1
                 if condition_4:
                     return False
         return True

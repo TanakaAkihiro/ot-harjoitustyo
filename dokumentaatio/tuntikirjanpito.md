@@ -38,4 +38,5 @@ päivä | aika(h) | mitä tein
 07.05 | 2 | Gameloop_testin muokkaamista
 07.05 | 1 | Docstringin muokkausta
 08.05 | 2 | Sovelluslogiikan kaavion muokkaamista
-Yhteensä | 62 |
+08.05 | 1 | Dokumentaatioiden muokkailua (arkkitehtuuri, käyttöohje)
+Yhteensä | 63 |
