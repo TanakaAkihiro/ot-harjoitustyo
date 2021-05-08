@@ -36,7 +36,11 @@ Pelaaja voi liikuttaa palikoita nuolinäppäimillä oikealle(→-key), vasemmall
 
 Pelaaja voi muuttaa palikan suuntaa myötäpäivään(🠁-key) sekä vastapäivään(z-key).
 
+[Pelinäkymä](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-pelinakyma.png)
+
 Pelaaja voi tauottaa pelaamisen panamalla P-näppäintä
+
+[Pause-näyttö](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-pause.png)
 
 ## Pelin loppuessa
 
