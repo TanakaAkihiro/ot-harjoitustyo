@@ -29,14 +29,20 @@ Luokalla *Block* on jokaisen mahdollisen palikkatyypin asennot kolminkerroksises
 pelaajan näppäinsyötteen perusteella. Attribuutit *shape*, *row* ja *column* määrittävät laskeutuvan palikan kunkin osan koordinaatit ruudukolla.
 
 Luokan *Block* metodit ovat seuraavat:
-* `move(direction)`
-* `movable(field, direction)`
-* `stop(field)`
-* `rotate(direction)`
-* `rotatable(field, direction)`
-* `check_game_over(field)`
+* `move(direction)` - liikuttaa palikan määrättyyn suuntaan
+* `movable(field, direction)` - palauttaa True, jos palikan pystyy liikuttamaan määrättyyn suuntaan
+* `stop(field)` - palauttaa uuden ruudukon taulukkona, jossa laskeutunut palikka on tallennettu ruudukkoon
+* `rotate(direction)` - muuttaa palikan asennon myötä- tai vastapäivään
+* `rotatable(field, direction)` - palauttaa True, jos palikan asennon pystyy muuttamaan määrättyyn suuntaan
+* `check_game_over(field)` - palauttaa True, jos uusi palikka ei mahdu enää ruudukkoon ja pelikierros loppuu
 
 Luokka *Field* ylläpitää ruudukkoa, jossa laskeutuneiden palikkojen koordinaatit ovat tiedossa.
+
+Luokan *Field* metodit ovat seuraavat:
+* `get_field()` - palauttaa ruudukon taulukkona
+* `update(new_field)` - muuttaa nykyisen ruudukon parametrina annettuun ruudukkoon
+* `empty_filled_rows()` - palauttaa tyhjennettyjen rivien lukumäärän
+* `check_filled_rows()` - palauttaa True, jos ruudukosta löytyy täydennettyjä rivejä
 
 ## Päätoiminnallisuudet
 
