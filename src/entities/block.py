@@ -3,23 +3,18 @@ from random import randint
 
 class Block:
     '''Luokka, joka käsittelee laskeutuvaa palikkaa
-    ...
 
-    Attribuutit
-    -----------
-    shapes: list
-        Taulukko kaikille palikoille ja sen asennoille
-    index: int
-        Satunnainen kokonaisluku, jonka avulla määritetään yksi palikkatyyppi taulukosta shapes
-    shape: list
-        Taulukko satunnaisesti valitun palikan asetelmasta ja asennosta
-    row: int
-        Palikan sijainnin rivi-indeksi
-    column: int
-        Palikan sijainnin sarakeindeksi
+    Attributes:
+        shapes: Taulukko kaikille palikoille ja sen asennoille
+        index: Satunnainen kokonaisluku, jonka avulla määritetään yksi palikkatyyppi taulukosta shapes
+        shape: Taulukko laskeutuvan palikan tyypistä/asennosta
+        row: Palikan sijainnin rivin indeksi
+        column: Palikan sijainnin sarakkeen indeksi
     '''
 
     def __init__(self):
+        '''Luokan konstruktori uudelle Block-oliolle
+        '''
         self._shapes = [
             [  # I
                 [[0, -1], [0, 0], [0, 1], [0, 2]],
@@ -69,12 +64,10 @@ class Block:
         self.column = 4
 
     def move(self, direction=None):
-        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka liikkuu yhen rivin verran alaspäin.
+        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka liikkuu yhen ruudun verran alaspäin.
 
-        Args
-        ----
-        direction: tuple
-            Määrittää laskeutuvan palikan suunnan, johon liikkuu.
+        Args:
+            direction: Määrittää laskeutuvan palikan suunnan, mihin liikkuu.
         '''
 
         if direction is None:
@@ -88,8 +81,8 @@ class Block:
         '''Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan. Jos suuntaa ei ole määritelty, suuntana oletetaan yhden rivin verran alempaa suuntaa.
 
         Args:
-        field: Field-olio
-        direction: Määrittää laskeutuvan palikan suunnan, johon liikkuu.
+            field: Field-olio
+            direction: Määrittää laskeutuvan palikan suunnan, johon liikkuu.
 
         Returns:
             True, jos palikalla ei ole esteitä määrätyssä suunnassa.

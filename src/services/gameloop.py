@@ -3,11 +3,30 @@ from entities.block import Block
 
 
 class Gameloop:
-    '''
-    Luokka yhdelle pelikierrokselle.
+    '''Luokka yhdelle pelikierrokselle.
+
+    Attributes:
+        field: Field-olio
+        event_queue: EventQueue-olio
+        event_handler: EventHandler-olio
+        clock: Clock-olio
+        renderer: Renderer-olio
+        block_setter: BlockSetter-olio
+        block: Block-olio, palikka joka on laskeutumuassa
+        emptied_rows: Tyhjennettyjen rivien määrä
     '''
 
     def __init__(self, event_queue, event_handler, clock, renderer, field, block_setter):
+        '''Luokan konstruktori, joka alustaa tarvittavat luokat pelikierrosta varten
+
+        Args:
+            event_queue: EventQueue-olio
+            event_handler: EventHandler-olio
+            clock: Clock-olio
+            renderer: Renderer-olio
+            field: Field-olio
+            block_setter: BlockSetter-olio
+        '''
         self._field = field
         self._event_queue = event_queue
         self._event_handler = event_handler
@@ -19,8 +38,7 @@ class Gameloop:
         self._emptied_rows = 0
 
     def start(self):
-        '''
-        Aloittaa pelkierroksen.
+        '''Aloittaa uuden pelkierroksen.
         '''
 
         self._renderer.show_screen()
