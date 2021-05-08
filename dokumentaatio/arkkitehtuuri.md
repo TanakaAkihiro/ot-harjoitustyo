@@ -9,13 +9,14 @@ Sovelluksella on referenssisovellusta muistuttava rakenne.
 Pakkaus *ui* käsittelee käyttöliittymää eli koneen sisäisen toiminnon ja käyttäjän välistä vuorovaikutusta, 'services' sovelluslogiikkaa, 'entities' sovelluksen tietokohteita sekä 'repositories' tietojen pysyväistallennusta.
 
 ## Käyttöliittymä
-Käyttöliittymällä on kuusi näkymää:
+Käyttöliittymällä on seitsemän näkymää:
 * Aloitusnäyttö
 * Pelisäännöt
 * Peliohjeet
 * Vanhat pistetulokset
 * Uuden tuloksen tallentaminen
 * Pelaaminen
+* Pause-näyttö
 
 Näkymien näyttämisestä vastaa luokka *Renderer*. Näppäimistön syötteistä vastaa luokat *EventQueue* ja *EventHandler*. Nämä luokat sijaitsevat pakkauksessa *ui*.
 
