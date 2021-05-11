@@ -42,4 +42,5 @@ päivä | aika(h) | mitä tein
 09.05 | 1 | Tutustuminen SQLiten käyttöön pythonilla
 10.05 | 1 | Bugien etsimistä
 11.05 | 4 | Renderer-luokan metodien jakaminen omiin luokkiin
-Yhteensä | 69 |
+11.05 | 2 | Tiedostoon tallentamisen alustaminen
+Yhteensä | 71 |
