@@ -84,7 +84,7 @@ class EventHandler:
                     event = event_queue.get()
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_p:
-                            renderer.show_screen()
+                            renderer.show_game_background()
                             break
 
             renderer.draw_field(field.get_field(), block, emptied_rows)

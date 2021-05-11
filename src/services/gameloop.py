@@ -41,7 +41,7 @@ class Gameloop:
         '''Aloittaa uuden pelkierroksen.
         '''
 
-        self._renderer.show_screen()
+        self._renderer.show_game_background()
         new_block = True
         while True:
             if self._field.check_filled_rows():

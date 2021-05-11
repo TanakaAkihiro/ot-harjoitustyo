@@ -40,4 +40,6 @@ päivä | aika(h) | mitä tein
 08.05 | 2 | Sovelluslogiikan kaavion muokkaamista
 08.05 | 1 | Dokumentaatioiden muokkailua (arkkitehtuuri, käyttöohje)
 09.05 | 1 | Tutustuminen SQLiten käyttöön pythonilla
-Yhteensä | 64 |
+10.05 | 1 | Bugien etsimistä
+11.05 | 4 | Renderer-luokan metodien jakaminen omiin luokkiin
+Yhteensä | 69 |
