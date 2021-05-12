@@ -43,4 +43,5 @@ päivä | aika(h) | mitä tein
 10.05 | 1 | Bugien etsimistä
 11.05 | 4 | Renderer-luokan metodien jakaminen omiin luokkiin
 11.05 | 2 | Tiedostoon tallentamisen alustaminen
-Yhteensä | 71 |
+12.05 | 3 | Kamppailua sqlite-tiedoston käsittelyn kanssa
+Yhteensä | 74 |

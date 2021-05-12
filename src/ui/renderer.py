@@ -2,6 +2,7 @@ import pygame
 from ui.start_screen_view import StartScreenView
 from ui.game_rules_view import GameRulesView
 from ui.control_options_view import ControlOptionsView
+from ui.ranking_view import RankingView
 from ui.game_view import GameView
 
 class Renderer:
@@ -17,7 +18,7 @@ class Renderer:
         colors: Sanakirja väreille
     '''
 
-    def __init__(self, screen, height, width, coefficient, cell_size):
+    def __init__(self, screen, height, width, coefficient, cell_size, score_repository):
         '''Luokan konstruktori, joka luo uuden näytön piirtäjän
 
         Args:
@@ -32,6 +33,7 @@ class Renderer:
         self._width = width
         self._coefficient = coefficient
         self._cell_size = cell_size
+        self._score_repository = score_repository
 
         self._colors = {"White": (255, 255, 255), "Black": (0, 0, 0), "Grey": (
             192, 192, 192), "Blue": (0, 0, 128), "Red": (200, 0, 0)}
@@ -46,20 +48,20 @@ class Renderer:
 
     def show_game_rules(self):
         '''Näyttää pelisäännöt
-
-        Args:
-            event_queue: EventQueue-olio, jonka avulla pääsee pelisäännön näkymästä alkunäyttöön
         '''
         self._current_view = GameRulesView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
         self._current_view.render()        
 
     def show_control_options(self):
         '''Näyttää peliohjeet
-
-        Args:
-            event_queue: EventQueue-olio, jonka avulla pystyy palaamaan alkunäyttöön
         '''
         self._current_view = ControlOptionsView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
+        self._current_view.render()
+    
+    def show_ranking(self):
+        '''Näyttää kymmenen parasta pelitulosta
+        '''
+        self._current_view = RankingView(self._screen, self._height, self._width, self._coefficient, self._cell_size, self._score_repository)
         self._current_view.render()
 
     def show_game_background(self):

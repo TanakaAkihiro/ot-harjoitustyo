@@ -16,6 +16,7 @@ class EventHandler:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     score = gameloop.start()
+                    score = ("Player", score)
                     return score
 
                 if event.key == pygame.K_1:
@@ -30,6 +31,16 @@ class EventHandler:
 
                 if event.key == pygame.K_2:
                     renderer.show_control_options()
+                    while True:
+                        event = event_queue.get()
+                        if event.type == pygame.KEYDOWN:
+                            if event.key == pygame.K_r:
+                                return
+                        elif event.type == pygame.QUIT:
+                            sys.exit()
+                
+                if event.key == pygame.K_3:
+                    renderer.show_ranking()
                     while True:
                         event = event_queue.get()
                         if event.type == pygame.KEYDOWN:
