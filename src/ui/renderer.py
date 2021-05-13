@@ -43,25 +43,25 @@ class Renderer:
     def show_start_screen(self):
         '''Näyttää sovelluksen aloitusnäkymän
         '''
-        self._current_view = StartScreenView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
+        self._current_view = StartScreenView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()
 
     def show_game_rules(self):
         '''Näyttää pelisäännöt
         '''
-        self._current_view = GameRulesView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
+        self._current_view = GameRulesView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()        
 
     def show_control_options(self):
         '''Näyttää peliohjeet
         '''
-        self._current_view = ControlOptionsView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
+        self._current_view = ControlOptionsView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()
     
     def show_ranking(self):
         '''Näyttää kymmenen parasta pelitulosta
         '''
-        self._current_view = RankingView(self._screen, self._height, self._width, self._coefficient, self._cell_size, self._score_repository)
+        self._current_view = RankingView(self._screen, self._height*self._cell_size, self._width*self._cell_size, self._score_repository)
         self._current_view.render()
 
     def show_game_background(self):

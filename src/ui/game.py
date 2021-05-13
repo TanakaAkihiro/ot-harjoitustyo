@@ -62,12 +62,12 @@ class Game:
         self._height = len(FIELD)
         self._width = len(FIELD[0])
         self._coefficient = CELL_SIZE//2.5
-        self._display_height = self._height*CELL_SIZE
-        self._display_width = self._width*CELL_SIZE
+        self._display_height = self._width*CELL_SIZE
+        self._display_width = self._height*CELL_SIZE
 
         pygame.init()
         self._screen = pygame.display.set_mode(
-            (self._display_height, self._display_width))
+            (self._display_width, self._display_height))
         pygame.display.set_caption("Tetris")
 
         self._score_repository = score_repository

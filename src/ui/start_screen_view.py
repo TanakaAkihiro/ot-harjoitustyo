@@ -1,12 +1,10 @@
 import pygame
 
 class StartScreenView:
-    def __init__(self, screen, height, width, coefficient, cell_size):
+    def __init__(self, screen, width, height):
         self._screen = screen
-        self._height = height
         self._width = width
-        self._coefficient = coefficient
-        self._cell_size = cell_size
+        self._height = height
 
         self._colors = {"White": (255, 255, 255), "Black": (0, 0, 0), "Grey": (
             192, 192, 192), "Blue": (0, 0, 128), "Red": (200, 0, 0)}
@@ -14,41 +12,46 @@ class StartScreenView:
     def render(self):
         self._screen.fill(self._colors["Black"])
 
-        text_font_1 = pygame.font.SysFont('comicsansms', 64)
-        text_content_1 = "Tetris"
-        text_1 = text_font_1.render(text_content_1, True, self._colors["Blue"])
-
-        rect = text_1.get_rect()
+        text_font = pygame.font.SysFont('comicsansms', 64)
+        text_content = "Tetris"
+        text = text_font.render(text_content, True, self._colors["Blue"])
+        rect = text.get_rect()
         pygame.draw.rect(
-            self._screen, self._colors["White"], (rect[0] + 580, rect[1] + 130, rect[2], rect[3]))
+            self._screen, self._colors["White"], ((self._width - rect[2])//2, 130, rect[2], rect[3]))
 
         pygame.display.flip()
+        self._screen.blit(text, ((self._width - rect[2])//2, 130))
 
-        self._screen.blit(text_1, (580, 130))
-
-        text_font_2 = pygame.font.SysFont(None, 48)
-        text_content_2 = "Press 'Enter' to start playing"
-        text_2 = text_font_2.render(
-            text_content_2, True, self._colors["White"])
-
-        self._screen.blit(text_2, (450, 300))
+        text_font = pygame.font.SysFont(None, 48)
+        text_content = "Press 'Enter' to start playing"
+        text = text_font.render(
+            text_content, True, self._colors["White"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2, 300))
         pygame.draw.line(
-            self._screen, self._colors["White"], (450, 330), (895, 330))
+            self._screen, self._colors["White"], ((self._width - rect[2])//2, 300 + rect[3]), ((self._width + rect[2])//2, 300 + rect[3]))
 
-        text_font_3 = pygame.font.SysFont(None, 36)
-        text_content_3 = "Press '1' to see game rules"
-        text_3 = text_font_3.render(text_content_3, True, self._colors["Red"])
-
-        self._screen.blit(text_3, (515, 400))
+        text_font = pygame.font.SysFont(None, 36)
+        text_content = "Press '1' to see game rules"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2, 400))
         pygame.draw.line(
-            self._screen, self._colors["White"], (515, 423), (825, 423))
+            self._screen, self._colors["White"], ((self._width - rect[2])//2, 400 + rect[3]), ((self._width + rect[2])//2, 400 + rect[3]))
 
-        text_font_4 = pygame.font.SysFont(None, 36)
-        text_content_4 = "Press '2' to see control options"
-        text_4 = text_font_4.render(text_content_4, True, self._colors["Red"])
-
-        self._screen.blit(text_4, (492, 450))
+        text_content = "Press '2' to see control options"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2, 450))
         pygame.draw.line(
-            self._screen, self._colors["White"], (492, 473), (852, 473))
+            self._screen, self._colors["White"], ((self._width - rect[2])//2, 450 + rect[3]), ((self._width + rect[2])//2, 450 + rect[3]))
 
+        text_content = "Press '3' to see high scores"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2, 500))
+        pygame.draw.line(
+            self._screen, self._colors["White"], ((self._width - rect[2])//2, 500 + rect[3]), ((self._width + rect[2])//2, 500 + rect[3]))
+
+            
         pygame.display.flip()

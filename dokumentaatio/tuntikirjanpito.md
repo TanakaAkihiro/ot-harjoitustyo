@@ -44,4 +44,6 @@ päivä | aika(h) | mitä tein
 11.05 | 4 | Renderer-luokan metodien jakaminen omiin luokkiin
 11.05 | 2 | Tiedostoon tallentamisen alustaminen
 12.05 | 3 | Kamppailua sqlite-tiedoston käsittelyn kanssa
-Yhteensä | 74 |
+13.05 | 2 | Sqlite-tiedosto käsittelyn viimeistelyä
+13.05 | 1 | Näkymien muokkailua
+Yhteensä | 77 |
