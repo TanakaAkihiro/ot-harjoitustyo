@@ -4,6 +4,8 @@ from ui.game_rules_view import GameRulesView
 from ui.control_options_view import ControlOptionsView
 from ui.ranking_view import RankingView
 from ui.game_view import GameView
+from ui.new_score_view import NewScoreView
+
 
 class Renderer:
 
@@ -18,7 +20,7 @@ class Renderer:
         colors: Sanakirja väreille
     '''
 
-    def __init__(self, screen, height, width, coefficient, cell_size, score_repository):
+    def __init__(self, screen, height, width, coefficient, cell_size, score_repository, clock, event_handler, event_queue):
         '''Luokan konstruktori, joka luo uuden näytön piirtäjän
 
         Args:
@@ -34,6 +36,9 @@ class Renderer:
         self._coefficient = coefficient
         self._cell_size = cell_size
         self._score_repository = score_repository
+        self._clock = clock
+        self._event_handler = event_handler
+        self._event_queue = event_queue
 
         self._colors = {"White": (255, 255, 255), "Black": (0, 0, 0), "Grey": (
             192, 192, 192), "Blue": (0, 0, 128), "Red": (200, 0, 0)}
@@ -43,31 +48,36 @@ class Renderer:
     def show_start_screen(self):
         '''Näyttää sovelluksen aloitusnäkymän
         '''
-        self._current_view = StartScreenView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
+        self._current_view = StartScreenView(
+            self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()
 
     def show_game_rules(self):
         '''Näyttää pelisäännöt
         '''
-        self._current_view = GameRulesView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
-        self._current_view.render()        
+        self._current_view = GameRulesView(
+            self._screen, self._height*self._cell_size, self._width*self._cell_size)
+        self._current_view.render()
 
     def show_control_options(self):
         '''Näyttää peliohjeet
         '''
-        self._current_view = ControlOptionsView(self._screen, self._height*self._cell_size, self._width*self._cell_size)
+        self._current_view = ControlOptionsView(
+            self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()
-    
+
     def show_ranking(self):
         '''Näyttää kymmenen parasta pelitulosta
         '''
-        self._current_view = RankingView(self._screen, self._height*self._cell_size, self._width*self._cell_size, self._score_repository)
+        self._current_view = RankingView(
+            self._screen, self._height*self._cell_size, self._width*self._cell_size, self._score_repository)
         self._current_view.render()
 
     def show_game_background(self):
         '''Piirtää valkoisen taustan ja ruudukon.
         '''
-        self._current_view = GameView(self._screen, self._height, self._width, self._coefficient, self._cell_size)
+        self._current_view = GameView(
+            self._screen, self._height, self._width, self._coefficient, self._cell_size)
         self._current_view.background()
 
     def draw_field(self, field, block, emptied_rows):
@@ -82,6 +92,18 @@ class Renderer:
 
     def show_pause(self):
         '''Näyttää pause-näytön
-        
+
         '''
         self._current_view.pause()
+
+    def save_new_score(self, score):
+        '''Pelin tuloksen tallentamisen näkymä
+
+        Args:
+            score: Pelikierroksen tulos
+
+        Returns:
+            Pelaajan nimen merkkijonona
+        '''
+        self._current_view = NewScoreView(self._screen, self._height*self._cell_size, self._width*self._cell_size, score, self._clock, self._event_handler, self._event_queue)
+        return self._current_view.render()

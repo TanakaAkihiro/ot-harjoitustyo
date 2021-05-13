@@ -30,6 +30,7 @@ class StubEventQueue:
     def clear_queue(self):
         pass
 
+
 class StubEventHandler:
     def handle_game_events(self, event_queue, renderer, field, block, emptied_rows):
         if not block.movable(field):
@@ -57,17 +58,21 @@ class StubBlock:
         ]
         self.row = -1
         self.column = 4
+
     def movable(self, field):
         for i in self.shape:
             if field.get_field()[self.row + 1][self.column + i[1]] == 1:
                 return False
         return True
+
     def move(self):
         self.row += 1
+
     def stop(self, field):
         for i in self.shape:
             field[self.row + i[0]][self.column + i[1]] = 1
         return field
+
     def check_game_over(self, field):
         for i in self.shape:
             if field[self.row + i[0] + 1][self.column + i[1]] == 1:
@@ -89,7 +94,7 @@ class TestGameloop(unittest.TestCase):
             [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
         ]
-    
+
         gameloop = Gameloop(
             StubEventQueue([]),
             StubEventHandler(),
@@ -98,6 +103,6 @@ class TestGameloop(unittest.TestCase):
             Field(field),
             StubBlockSetter()
         )
-    
+
         result = gameloop.start()
         self.assertEqual(result, 0)

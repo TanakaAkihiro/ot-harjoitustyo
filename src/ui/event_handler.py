@@ -16,7 +16,6 @@ class EventHandler:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     score = gameloop.start()
-                    score = ("Player", score)
                     return score
 
                 if event.key == pygame.K_1:
@@ -38,7 +37,7 @@ class EventHandler:
                                 return
                         elif event.type == pygame.QUIT:
                             sys.exit()
-                
+
                 if event.key == pygame.K_3:
                     renderer.show_ranking()
                     while True:
@@ -46,12 +45,14 @@ class EventHandler:
                         if event.type == pygame.KEYDOWN:
                             if event.key == pygame.K_r:
                                 return
+                            if event.key == pygame.K_d:
+                                return "DELETE"
                         elif event.type == pygame.QUIT:
                             sys.exit()
 
             elif event.type == pygame.QUIT:
                 exit()
-        
+
     def handle_game_events(self, event_queue, renderer, field, block, emptied_rows):
         '''Käsittelee näppäimistön tapahtumia pelin aikana
 
@@ -112,3 +113,19 @@ class EventHandler:
             return True
         else:
             block.move()
+
+    def handle_name_input(self, text, event_queue):
+        event = event_queue.get()
+        if event.type == pygame.QUIT:
+            sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RETURN:
+                return False
+            if event.key == pygame.K_BACKSPACE:
+                if len(text) == 1:
+                    return ""
+                return text[:len(text)-1]
+            else:
+                if len(text) == 7:
+                    return text
+                return text + event.unicode

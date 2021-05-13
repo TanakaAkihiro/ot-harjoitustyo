@@ -46,4 +46,6 @@ päivä | aika(h) | mitä tein
 12.05 | 3 | Kamppailua sqlite-tiedoston käsittelyn kanssa
 13.05 | 2 | Sqlite-tiedosto käsittelyn viimeistelyä
 13.05 | 1 | Näkymien muokkailua
-Yhteensä | 77 |
+13.05 | 1 | High Scoren poistamisen mahdollistaminen
+13.05 | 2 | Pelaaja voi näppäillä oman nimen pelikierroksen jälkeen
+Yhteensä | 80 |

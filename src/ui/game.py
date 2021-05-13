@@ -6,7 +6,8 @@ from ui.event_queue import EventQueue
 from ui.event_handler import EventHandler
 from ui.renderer import Renderer
 from entities.field import Field
-from repositories.score_repository import (score_repository as default_score_repository)
+from repositories.score_repository import (
+    score_repository as default_score_repository)
 
 FIELD = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -52,9 +53,9 @@ class Game:
         gameloop: Gameloop-olio
         '''
 
-    def __init__(self, score_repository = default_score_repository):
+    def __init__(self, score_repository=default_score_repository):
         '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
-        
+
         Args:
             score_repository: ScoreRepository
         '''
@@ -75,7 +76,7 @@ class Game:
         self._event_handler = EventHandler()
         self._clock = Clock()
         self._renderer = Renderer(
-            self._screen, self._height, self._width, self._coefficient, CELL_SIZE, self._score_repository)
+            self._screen, self._height, self._width, self._coefficient, CELL_SIZE, self._score_repository, self._clock, self._event_handler, self._event_queue)
         self._field = Field(FIELD)
         self._block_setter = BlockSetter()
         self._gameloop = Gameloop(
@@ -85,11 +86,14 @@ class Game:
         '''Näyttää aloitusnäytön ja siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella'''
         self._renderer.show_start_screen()
 
-        score = self._event_handler.handle_menu_events(self._event_queue, self._renderer, self._gameloop)
+        score = self._event_handler.handle_menu_events(
+            self._event_queue, self._renderer, self._gameloop)
 
-        if score:
+        if score == "DELETE":
+            self._score_repository.delete_all()
+        elif score:
             self._score_repository.add_new_score(score[0], score[1])
-        
+
         self.initialize()
         self.start_screen()
 

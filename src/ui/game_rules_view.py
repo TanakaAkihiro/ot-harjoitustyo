@@ -1,5 +1,6 @@
 import pygame
 
+
 class GameRulesView:
     def __init__(self, screen, width, height):
         self._screen = screen

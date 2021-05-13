@@ -39,6 +39,9 @@ class Gameloop:
 
     def start(self):
         '''Aloittaa uuden pelkierroksen.
+
+        Returns:
+            Tuplen, jonka ensimmäisessä indeksissä on pelitulos ja toisessa pelaajan nimi
         '''
 
         self._renderer.show_game_background()
@@ -50,7 +53,8 @@ class Gameloop:
                 if new_block:
                     self._block = self._block_setter.set_new_block()
                     if self._block.check_game_over(self._field.get_field()):
-                        return self._emptied_rows
+                        player_name = self._renderer.save_new_score(self._emptied_rows)
+                        return (player_name, self._emptied_rows)
                     new_block = False
 
                 event = self._event_handler.handle_game_events(

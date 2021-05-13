@@ -33,10 +33,11 @@ class GameView:
 
         self._screen.blit(text, ((self._height*self._cell_size)
                           * 3/4, (self._width*self._cell_size)/3))
-        
+
         text_content = "Press 'P' to pause"
         text = text_font.render(text_content, True, self._colors["Red"])
-        self._screen.blit(text, ((self._height*self._cell_size)/10, (self._width*self._cell_size)/3))
+        self._screen.blit(
+            text, ((self._height*self._cell_size)/10, (self._width*self._cell_size)/3))
 
         for row in range(self._height):
             for column in range(self._width):

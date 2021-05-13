@@ -197,7 +197,7 @@ class Block:
 
         Args:
             field: Nykyinen ruudukko taulukkona
-        
+
         Returns:
             True, jos uudelle palikalle ei ole tilaa
             False muuten

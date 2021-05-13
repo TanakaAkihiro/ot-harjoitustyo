@@ -4,7 +4,7 @@ from database_connection import get_database_connection
 class ScoreRepository:
     def __init__(self, connection):
         self._connection = connection
-    
+
     def find_ranking(self):
         cursor = self._connection.cursor()
 
@@ -19,13 +19,15 @@ class ScoreRepository:
 
         cursor.execute('DELETE FROM Scores')
 
-        self._connection.commi()
+        self._connection.commit()
 
     def add_new_score(self, name, score):
         cursor = self._connection.cursor()
-        
-        cursor.execute('INSERT INTO Scores (name, score) VALUES (?, ?)', (name, score))
+
+        cursor.execute(
+            'INSERT INTO Scores (name, score) VALUES (?, ?)', (name, score))
 
         self._connection.commit()
+
 
 score_repository = ScoreRepository(get_database_connection())

@@ -1,5 +1,6 @@
 import pygame
 
+
 class StartScreenView:
     def __init__(self, screen, width, height):
         self._screen = screen
@@ -53,5 +54,4 @@ class StartScreenView:
         pygame.draw.line(
             self._screen, self._colors["White"], ((self._width - rect[2])//2, 500 + rect[3]), ((self._width + rect[2])//2, 500 + rect[3]))
 
-            
         pygame.display.flip()
