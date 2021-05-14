@@ -116,16 +116,16 @@ class TestBlock(unittest.TestCase):
         self.block.rotate(-1)
         self.assertEqual(self.block.shape, [[0, -1], [0, 0], [0, 1], [0, 2]])
 
-    def test_return_false_when_check_if_the_block_is_rotatable_and_block_is_O_type(self):
+    def test_return_false_if_the_block_is_O_type(self):
         self.block._block_type = 1
         result = self.block.rotatable(self.field, 1)
         self.assertFalse(result)
 
-    def test_return_true_when_check_if_the_block_is_rotatable_clockwise(self):
+    def test_return_true_if_the_block_is_rotatable_clockwise(self):
         result = self.block.rotatable(self.field, 1)
         self.assertTrue(result)
 
-    def test_return_false_when_check_if_the_block_is_rotatable_clockwise(self):
+    def test_return_false_if_the_block_is_not_rotatable_clockwise(self):
         self.field = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -135,13 +135,28 @@ class TestBlock(unittest.TestCase):
         result = self.block.rotatable(self.field, 1)
         self.assertFalse(result)
 
-    def test_return_true_when_check_if_the_block_is_rotatable_clockwise_and_block_orientation_is_3(self):
+        self.field = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.block.move()
+        self.block.move()
+        self.block.move()
+        self.block.move()
+        result = self.block.rotatable(self.field, 1)
+        self.assertFalse(result)
+
+
+    def test_return_true_if_the_block_is_rotatable_clockwise_and_block_orientation_is_3(self):
         self.block._block_orientation = 3
         self.shape = self.block._shapes[self.block._block_type][self.block._block_orientation]
         result = self.block.rotatable(self.field, 1)
         self.assertTrue(result)
 
-    def test_return_false_when_check_if_the_block_is_rotatable_clockwise_and_block_orientation_is_3(self):
+    def test_return_false_if_the_block_is_not_rotatable_clockwise_and_block_orientation_is_3(self):
         self.block._block_orientation = 3
         self.shape = self.block._shapes[self.block._block_type][self.block._block_orientation]
         self.field = [
@@ -153,17 +168,44 @@ class TestBlock(unittest.TestCase):
         result = self.block.rotatable(self.field, 1)
         self.assertFalse(result)
 
-    def test_return_true_when_check_if_the_block_is_rotatable_anti_clockwise(self):
+        self.field = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.block.move()
+        self.block.move()
+        self.block.move()
+        self.block.move()
+        result = self.block.rotatable(self.field, 1)
+        self.assertFalse(result)        
+
+    def test_return_true_if_the_block_is_rotatable_anti_clockwise(self):
         result = self.block.rotatable(self.field, -1)
         self.assertTrue(result)
 
-    def test_return_false_when_check_if_the_block_is_rotatable_anti_clockwise(self):
+    def test_return_false_if_the_block_is_rotatable_anti_clockwise(self):
         self.field = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 1, 1, 1, 1, 0, 0, 0],
             [0, 0, 0, 1, 1, 1, 1, 0, 0, 0]
         ]
+        result = self.block.rotatable(self.field, -1)
+        self.assertFalse(result)
+
+        self.field = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ]
+
+        self.block.move()
+        self.block.move()
+        self.block.move()
         result = self.block.rotatable(self.field, -1)
         self.assertFalse(result)
 

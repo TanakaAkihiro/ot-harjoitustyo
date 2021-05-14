@@ -1,7 +1,6 @@
 import unittest
 import pygame
 from services.gameloop import Gameloop
-from entities.field import Field
 
 
 class StubClock:
@@ -87,6 +86,26 @@ class StubBlockSetter:
     def set_new_block(self):
         return StubBlock()
 
+class StubField:
+    def __init__(self, field):
+        self.field = field
+        self.x = 0
+    
+    def get_field(self):
+        return self.field
+    
+    def update(self, new_field):
+        self.field = new_field
+    
+    def empty_filled_rows(self):
+        return 1
+
+    def check_filled_rows(self):
+        if self.x == 0:
+            self.x = 1
+            return True
+        return False
+
 
 class TestGameloop(unittest.TestCase):
     def test_return_emptied_rows_when_game_is_over(self):
@@ -103,9 +122,9 @@ class TestGameloop(unittest.TestCase):
             StubEventHandler(),
             StubClock(),
             StubRenderer(),
-            Field(field),
+            StubField(field),
             StubBlockSetter()
         )
 
         result = gameloop.start()
-        self.assertEqual(result, ("Player", 0))
+        self.assertEqual(result, ("Player", 1))

@@ -49,4 +49,5 @@ päivä | aika(h) | mitä tein
 13.05 | 1 | High Scoren poistamisen mahdollistaminen
 13.05 | 2 | Pelaaja voi näppäillä oman nimen pelikierroksen jälkeen
 14.05 | 1 | Sovelluksen toimivuuden tarkistaminen etätyöpöydällä ja .gitignore-tiedoston muokkausta
-Yhteensä | 81 |
+14.05 | 1 | Luokkien Block ja Gameloopin hiomista
+Yhteensä | 82 |
