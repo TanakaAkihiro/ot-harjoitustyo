@@ -48,4 +48,5 @@ päivä | aika(h) | mitä tein
 13.05 | 1 | Näkymien muokkailua
 13.05 | 1 | High Scoren poistamisen mahdollistaminen
 13.05 | 2 | Pelaaja voi näppäillä oman nimen pelikierroksen jälkeen
-Yhteensä | 80 |
+14.05 | 1 | Sovelluksen toimivuuden tarkistaminen etätyöpöydällä ja .gitignore-tiedoston muokkausta
+Yhteensä | 81 |
