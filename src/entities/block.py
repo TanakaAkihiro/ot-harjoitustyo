@@ -6,14 +6,15 @@ class Block:
 
     Attributes:
         shapes: Taulukko kaikille palikoille ja sen asennoille
-        index: Satunnainen kokonaisluku, jonka avulla määritetään yksi palikkatyyppi taulukosta shapes
-        shape: Taulukko laskeutuvan palikan tyypistä/asennosta
+        block_type: Satunnainen kokonaisluku, joka määrää palikan muodon
+        block_orientation: Kokonaiasluku, joka määrää palikan asennon
+        shape: Taulukko laskeutuvan palikan tyypistä & asennoista
         row: Palikan sijainnin rivin indeksi
         column: Palikan sijainnin sarakkeen indeksi
     '''
 
     def __init__(self):
-        '''Luokan konstruktori uudelle Block-oliolle
+        '''Luokan konstruktori Block-oliolle
         '''
         self._shapes = [
             [  # I
@@ -64,7 +65,7 @@ class Block:
         self.column = 4
 
     def move(self, direction=None):
-        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka liikkuu yhen ruudun verran alaspäin.
+        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka tippuu yhen ruudun verran alaspäin.
 
         Args:
             direction: Määrittää laskeutuvan palikan suunnan, mihin liikkuu.
@@ -82,7 +83,7 @@ class Block:
 
         Args:
             field: Field-olio
-            direction: Määrittää laskeutuvan palikan suunnan, johon liikkuu.
+            direction: Määrittää laskeutuvan palikan suunnan, mihin liikkuu.
 
         Returns:
             True, jos palikalla ei ole esteitä määrätyssä suunnassa.
@@ -110,7 +111,7 @@ class Block:
         return True
 
     def stop(self, field):
-        '''Lisää laskeutuneen palikan ruudukolle
+        '''Tallentaa laskeutuneen palikan indeksit ruudukolle
 
         Args:
             field: Ruudukko taulukkona
@@ -126,7 +127,7 @@ class Block:
         '''Muuttaa palikan asentoa.
 
         Args:
-            direction: Suunta, mihinpäin pelaaja haluaa kääntää palikan
+            direction: Suunta, mihin päin pelaaja haluaa kääntää palikan
         '''
         if direction == 1:
             if self._block_orientation == 3:
@@ -196,10 +197,10 @@ class Block:
         '''Tarkistaa, loppuuko pelikierros
 
         Args:
-            field: Nykyinen ruudukko taulukkona
+            field: Tämänhetkinen ruudukko taulukkona
 
         Returns:
-            True, jos uudelle palikalle ei ole tilaa
+            True, jos uudelle palikalle ei ole tilaa eli pelikierros päättyy
             False muuten
         '''
         for i in self.shape:

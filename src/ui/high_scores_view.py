@@ -1,7 +1,7 @@
 import pygame
 
 
-class RankingView:
+class HighScoresView:
     def __init__(self, screen, width, height, score_repository):
         self._screen = screen
         self._width = width
@@ -21,15 +21,15 @@ class RankingView:
         self._screen.blit(text, ((self._width - rect[2])//2, 50))
 
         text_font = pygame.font.SysFont(None, 36)
-        ranking = self._score_repository.find_ranking()
+        high_scores = self._score_repository.find_high_scores()
 
         x = 0
         for i in range(10):
-            if len(ranking) - 1 >= i:
-                text = text_font.render(str(ranking[i][0]), True, self._colors["White"])
+            if len(high_scores) - 1 >= i:
+                text = text_font.render(str(high_scores[i][0]), True, self._colors["White"])
                 self._screen.blit(text, ((self._width - rect[2]*2.5)//2, 150 + x))
                 
-                text = text_font.render(str(ranking[i][1]), True, self._colors["White"])
+                text = text_font.render(str(high_scores[i][1]), True, self._colors["White"])
                 self._screen.blit(text, ((self._width + rect[2]*2)//2, 150 + x))
             else:
                 text = text_font.render("Player", True, self._colors["White"])

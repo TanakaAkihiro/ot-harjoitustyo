@@ -9,6 +9,11 @@ class EventHandler:
             event_queue: EventQueue-olio
             renderer: Renderer-olio
             gameloop: Gameloop-olio
+        
+        Returns:
+            score eli pelikierroksen tuloksen kokonaislukuna
+            "DELETE", kun käyttäjä haluaa poistaa tietokannan tiedot
+            None muulloin 
         '''
 
         while True:
@@ -39,7 +44,7 @@ class EventHandler:
                             sys.exit()
 
                 if event.key == pygame.K_3:
-                    renderer.show_ranking()
+                    renderer.show_high_scores()
                     while True:
                         event = event_queue.get()
                         if event.type == pygame.KEYDOWN:
@@ -115,6 +120,17 @@ class EventHandler:
             block.move()
 
     def handle_name_input(self, text, event_queue):
+        '''Käsittelee näppäimistön tapahtumat pelikierroksen jälkeen, kun pelaaja näppäilee nimensä
+
+        Args:
+            text: Merkkijono, jonka pelaaja on näppäillyt tähän mennessä
+            event_queue: EventQueue-olio
+        
+        Returns:
+            False, kun pelaaja on valmis
+            text[:len(text)-1], eli palauttaa attribuuttina annetun merkkijonon ilman viimeistä merkkiä
+            text + event.unicode, eli palauttaa merkkijonon, johon on lisätty pelaajan näppäilemä merkki
+        '''
         event = event_queue.get()
         if event.type == pygame.QUIT:
             sys.exit()

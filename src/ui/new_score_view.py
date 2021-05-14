@@ -42,7 +42,7 @@ class NewScoreView:
             elif player_input is False:
                 return text_content
             
-            text = text_font.render(text_content, True, self._colors["Blue"])
+            text = text_font.render(text_content, True, self._colors["Black"])
             self._screen.blit(text, (self._width//2 - 100, self._height//2 - 15))
             pygame.display.flip()
             self._clock.tick(10)

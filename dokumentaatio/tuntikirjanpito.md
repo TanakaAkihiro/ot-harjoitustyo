@@ -50,4 +50,5 @@ päivä | aika(h) | mitä tein
 13.05 | 2 | Pelaaja voi näppäillä oman nimen pelikierroksen jälkeen
 14.05 | 1 | Sovelluksen toimivuuden tarkistaminen etätyöpöydällä ja .gitignore-tiedoston muokkausta
 14.05 | 1 | Luokkien Block ja Gameloopin hiomista
-Yhteensä | 82 |
+14.05 | 2 | Docstringsien hiomista
+Yhteensä | 84 |

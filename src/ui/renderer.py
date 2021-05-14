@@ -2,7 +2,7 @@ import pygame
 from ui.start_screen_view import StartScreenView
 from ui.game_rules_view import GameRulesView
 from ui.control_options_view import ControlOptionsView
-from ui.ranking_view import RankingView
+from ui.high_scores_view import HighScoresView
 from ui.game_view import GameView
 from ui.new_score_view import NewScoreView
 
@@ -17,7 +17,12 @@ class Renderer:
         width: Ruudukon leveys
         coefficient: Ruudukon kerroin
         cell_size: Näytön kerroin
+        score_repository: ScoreRepository-olio
+        clock: Clock-olio
+        event_handler: EventHandler-olio
+        event_queue: EventQueue-olio
         colors: Sanakirja väreille
+        current_view: Muuttuja, jonka arvoksi määrätään halutun näkymän olio
     '''
 
     def __init__(self, screen, height, width, coefficient, cell_size, score_repository, clock, event_handler, event_queue):
@@ -29,6 +34,10 @@ class Renderer:
             width: Ruudukon leveys
             coefficient: Ruudukon kerroin
             cell_size: Näytön kerroin
+            score_repository: ScoreRepository-olio
+            clock: Clock-olio
+            event_handler: EventHandler-olio
+            event_queue: EventQueue-olio
         '''
         self._screen = screen
         self._height = height
@@ -60,16 +69,16 @@ class Renderer:
         self._current_view.render()
 
     def show_control_options(self):
-        '''Näyttää peliohjeet
+        '''Näyttää pelin ohjeet
         '''
         self._current_view = ControlOptionsView(
             self._screen, self._height*self._cell_size, self._width*self._cell_size)
         self._current_view.render()
 
-    def show_ranking(self):
+    def show_high_scores(self):
         '''Näyttää kymmenen parasta pelitulosta
         '''
-        self._current_view = RankingView(
+        self._current_view = HighScoresView(
             self._screen, self._height*self._cell_size, self._width*self._cell_size, self._score_repository)
         self._current_view.render()
 
@@ -81,7 +90,7 @@ class Renderer:
         self._current_view.background()
 
     def draw_field(self, field, block, emptied_rows):
-        '''Piirtää ruudukon pelin aikana.
+        '''Piirtää ruutuja ruudukkoon pelin aikana.
 
         Args:
             field: Field-olio
@@ -92,7 +101,6 @@ class Renderer:
 
     def show_pause(self):
         '''Näyttää pause-näytön
-
         '''
         self._current_view.pause()
 

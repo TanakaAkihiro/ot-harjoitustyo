@@ -12,8 +12,9 @@ class Gameloop:
         clock: Clock-olio
         renderer: Renderer-olio
         block_setter: BlockSetter-olio
-        block: Block-olio, palikka joka on laskeutumuassa
-        emptied_rows: Tyhjennettyjen rivien määrä
+
+        block: Block-olio; palikka joka on laskeutumuassa
+        emptied_rows: Tyhjennettyjen rivien määrä kokonaislukuna
     '''
 
     def __init__(self, event_queue, event_handler, clock, renderer, field, block_setter):
@@ -41,7 +42,7 @@ class Gameloop:
         '''Aloittaa uuden pelkierroksen.
 
         Returns:
-            Tuplen, jonka ensimmäisessä indeksissä on pelitulos ja toisessa pelaajan nimi
+            Tuplen, jonka ensimmäisessä indeksissä on pelaajan nimi ja toisessa pelitulos
         '''
 
         self._renderer.show_game_background()

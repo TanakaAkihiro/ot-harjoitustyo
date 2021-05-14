@@ -43,13 +43,16 @@ class Game:
         coefficient: Ruudukon kerroin
         display_height: Näytön korkeus
         display_width: Näytön leveys
-        screen: Näyttö
+
+        screen: Pygame-näyttö
+        
+        score_repository: ScoreRepository-olio
         event_queue: EventQueue-olio
+        event_handler: EventHandler-olio
         clock: Clock-olio
         renderer: Renderer-olio
         field: Field-olio
         block_setter: BlockSetter-olio
-        score_repository: ScoreRepository-olio
         gameloop: Gameloop-olio
         '''
 
@@ -57,7 +60,7 @@ class Game:
         '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
 
         Args:
-            score_repository: ScoreRepository
+            score_repository: Oletuksena ScoreRepository-olio
         '''
 
         self._height = len(FIELD)
@@ -83,7 +86,8 @@ class Game:
             self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
 
     def start_screen(self):
-        '''Näyttää aloitusnäytön ja siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella'''
+        '''Näyttää aloitusnäytön, siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella, käsittelee tietokannan tietoja, alustaa uuden ruudukon ja kutsuu itsensä lopuksi
+        '''
         self._renderer.show_start_screen()
 
         score = self._event_handler.handle_menu_events(
@@ -98,7 +102,8 @@ class Game:
         self.start_screen()
 
     def initialize(self):
-        '''Alustaa ruudukon uutta pelikierrosta varten'''
+        '''Alustaa ruudukon uutta pelikierrosta varten
+        '''
         FIELD = [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -124,3 +129,5 @@ class Game:
         self._field = Field(FIELD)
         self._gameloop = Gameloop(
             self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
+
+game = Game()

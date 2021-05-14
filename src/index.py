@@ -1,4 +1,4 @@
-from ui.game import Game
+from ui.game import game
 
 
 def main():
@@ -6,7 +6,6 @@ def main():
     Käynnistää ohjelman.
     '''
 
-    game = Game()
     game.start_screen()
 
 

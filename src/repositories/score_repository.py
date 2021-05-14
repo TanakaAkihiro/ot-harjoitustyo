@@ -2,19 +2,35 @@ from database_connection import get_database_connection
 
 
 class ScoreRepository:
+    '''Luokka, joka käsittelee tietokannan toimntoja.
+
+    Attributes:
+        connection: Yhteys tietokantatiedostoon
+    '''
     def __init__(self, connection):
+        '''
+        Args:
+            connection: Yhteys tietokantatiedostoon
+        '''
         self._connection = connection
 
-    def find_ranking(self):
+    def find_high_scores(self):
+        '''Hakee kymmenen parasta pelitulosta pelaajanimen kanssa
+
+        Returns:
+            Listan tupleja, joiden ensimmäisessä indeksissä on pelaajanimi ja toisessa pelitulos
+        '''
         cursor = self._connection.cursor()
 
         cursor.execute('SELECT * FROM Scores ORDER BY score DESC LIMIT 10')
 
-        ranking = cursor.fetchall()
+        high_scores = cursor.fetchall()
 
-        return ranking
+        return high_scores
 
     def delete_all(self):
+        '''Poistaa tiedot tietokannasta
+        '''
         cursor = self._connection.cursor()
 
         cursor.execute('DELETE FROM Scores')
@@ -22,6 +38,8 @@ class ScoreRepository:
         self._connection.commit()
 
     def add_new_score(self, name, score):
+        '''Kirjaa uuden pelituloksen ja pelaajanimen tietokantaan
+        '''
         cursor = self._connection.cursor()
 
         cursor.execute(
