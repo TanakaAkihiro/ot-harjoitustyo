@@ -44,11 +44,14 @@ class StubEventHandler:
 
 
 class StubRenderer:
-    def show_screen(self):
+    def show_game_background(self):
         pass
 
     def draw_field(self, field, block, emptied_rows):
         pass
+
+    def save_new_score(self, emptied_rows):
+        return "Player"
 
 
 class StubBlock:
@@ -105,4 +108,4 @@ class TestGameloop(unittest.TestCase):
         )
 
         result = gameloop.start()
-        self.assertEqual(result, 0)
+        self.assertEqual(result, ("Player", 0))

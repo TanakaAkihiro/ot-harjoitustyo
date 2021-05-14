@@ -45,6 +45,13 @@ class TestBlock(unittest.TestCase):
     def test_check_if_the_block_is_movable_to_left(self):
         result = self.block.movable(self.field, (0, -1))
         self.assertTrue(result)
+
+        self.block.move((0, -1))
+        self.block.move((0, -1))
+        self.block.move((0, -1))
+        result = self.block.movable(self.field, (0, -1))
+        self.assertFalse(result)
+
         self.field = [
             [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
             [1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
@@ -57,6 +64,13 @@ class TestBlock(unittest.TestCase):
     def test_check_if_the_block_is_movable_to_right(self):
         result = self.block.movable(self.field, (0, 1))
         self.assertTrue(result)
+
+        self.block.move((0, 1))
+        self.block.move((0, 1))
+        self.block.move((0, 1))
+        result = self.block.movable(self.field, (0, 1))
+        self.assertFalse(result)
+
         self.field = [
             [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
             [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
@@ -70,6 +84,10 @@ class TestBlock(unittest.TestCase):
         self.block.move()
         self.block.move()
         self.block.move()
+        
+        result = self.block.movable(self.field)
+        self.assertFalse(result)
+
         result = self.block.stop(self.field)
         self.assertEqual(result, [
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -149,7 +167,11 @@ class TestBlock(unittest.TestCase):
         result = self.block.rotatable(self.field, -1)
         self.assertFalse(result)
 
-    def test_true_when_game_is_over(self):
+    def test_true_when_game_is_over_and_false_when_not(self):
+        result = self.block.check_game_over(self.field)
+        self.assertFalse(result)
+
+
         self.field = [
             [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
@@ -159,6 +181,4 @@ class TestBlock(unittest.TestCase):
         result = self.block.check_game_over(self.field)
         self.assertTrue(result)
 
-    def test_false_when_game_is_not_over(self):
-        result = self.block.check_game_over(self.field)
-        self.assertFalse(result)
+    
