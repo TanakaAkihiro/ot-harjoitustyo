@@ -85,7 +85,7 @@ class Renderer:
     def ensure_deleting(self):
         '''Varmistaa pelaajalta tietokannan tietojen poistamisen
         '''
-        return self._current_view.ensure()
+        self._current_view.ensure_deleting()
 
     def show_game_background(self):
         '''Piirtää valkoisen taustan ja ruudukon.

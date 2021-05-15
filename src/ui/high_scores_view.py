@@ -51,7 +51,7 @@ class HighScoresView:
 
         pygame.display.flip()
 
-    def ensure(self):
+    def ensure_deleting(self):
         self._screen.fill(self._colors["Black"])
 
         text_font = pygame.font.SysFont(None, 48)
