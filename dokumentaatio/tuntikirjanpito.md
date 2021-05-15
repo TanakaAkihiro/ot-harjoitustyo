@@ -51,4 +51,5 @@ päivä | aika(h) | mitä tein
 14.05 | 1 | Sovelluksen toimivuuden tarkistaminen etätyöpöydällä ja .gitignore-tiedoston muokkausta
 14.05 | 1 | Luokkien Block ja Gameloopin hiomista
 14.05 | 2 | Docstringsien hiomista
-Yhteensä | 84 |
+15.05 | 2 | Käyttöohjeen ja arkitehtuuri-dokumentaatioiden muokkausta
+Yhteensä | 86 |
