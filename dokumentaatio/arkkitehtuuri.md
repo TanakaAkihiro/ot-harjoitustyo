@@ -54,7 +54,11 @@ Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostoss
 
 ## Päätoiminnallisuudet
 
-### 
+### Tietokannan tietojen käsittely
+
+#### Uuden pelikierroksen tuloksen tallentaminen
+
+![Sekvenssikaavio_pelituloksen_tallentaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-pelituloksen_tallentaminen_tietokantaan.png)
 
 ### Palikoiden liikkeet
 
