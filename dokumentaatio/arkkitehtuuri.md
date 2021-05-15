@@ -6,7 +6,7 @@
 
 Sovelluksella on referenssisovellusta muistuttava rakenne.
 
-Pakkaus *ui* käsittelee käyttöliittymää eli koneen sisäisen toiminnon ja käyttäjän välistä vuorovaikutusta, 'services' sovelluslogiikkaa, 'entities' sovelluksen tietokohteita sekä 'repositories' tietojen pysyväistallennusta.
+Pakkaus *ui* käsittelee käyttöliittymää eli koneen sisäisen toiminnon ja käyttäjän välistä vuorovaikutusta, *services* sovelluslogiikkaa, *entities* sovelluksen tietokohteita sekä *repositories* tietojen pysyväistallennusta.
 
 ## Käyttöliittymä
 Käyttöliittymällä on seitsemän näkymää:
@@ -18,18 +18,18 @@ Käyttöliittymällä on seitsemän näkymää:
 * Pelaaminen
 * Pause-näyttö
 
-Näkymien näyttämisestä vastaa luokka *Renderer*. Näppäimistön syötteistä vastaa luokat *EventQueue* ja *EventHandler*. Nämä luokat sijaitsevat pakkauksessa *ui*.
+Näkymien näyttämisestä vastaa luokka ```Renderer```. Näppäimistön syötteistä vastaa luokat ``EventQueue`` ja ``EventHandler``. Nämä luokat sijaitsevat pakkauksessa ``ui``.
 
 ## Sovelluslogiikka
 Sovelluksen loogisen tietomallin muodostavat luokat *Gameloop*, *Block* ja *Field*. *Block* käsittelee laskeutuvia palikoita, *Field* käsittelee ruudukkoa sekä jo laskeutuneita palikoita ja *Gameloop* kokoaa nämä yhteen.
 
 ![Luokkakaavio_sovelluslogiikka](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-sovelluslogiikka_luokkakaavio.png)
 
-Luokalla *Block* on jokaisen mahdollisen palikkatyypin asennot kolminkerroksisessa taulukossa *shapes*. *block_type* määrittää laskeutuvan palikan muodon. 
+Luokalla ``Block`` on jokaisen mahdollisen palikkatyypin asennot kolminkerroksisessa taulukossa *shapes*. *block_type* määrittää laskeutuvan palikan muodon. 
 *block_typen* arvo muuttuu ainoastaan silloin, kun ruudukkoon ilmestyy uusi palikka. *block_orientation* määrittää laskeutuvan palikan asennon, ja se muuttuu, 
 pelaajan näppäinsyötteen perusteella. Attribuutit *shape*, *row* ja *column* määrittävät laskeutuvan palikan kunkin osan koordinaatit ruudukolla.
 
-Luokan *Block* metodit ovat seuraavat:
+Luokan ``Block`` metodit ovat seuraavat:
 * `move(direction)` - liikuttaa palikan määrättyyn suuntaan
 * `movable(field, direction)` - palauttaa True, jos palikan pystyy liikuttamaan määrättyyn suuntaan
 * `stop(field)` - palauttaa uuden ruudukon taulukkona, jossa laskeutunut palikka on tallennettu ruudukkoon
@@ -37,15 +37,24 @@ Luokan *Block* metodit ovat seuraavat:
 * `rotatable(field, direction)` - palauttaa True, jos palikan asennon pystyy muuttamaan määrättyyn suuntaan
 * `check_game_over(field)` - palauttaa True, jos uusi palikka ei mahdu enää ruudukkoon ja pelikierros loppuu
 
-Luokka *Field* ylläpitää ruudukkoa, jossa laskeutuneiden palikkojen koordinaatit ovat tiedossa.
+Luokka ``Field`` ylläpitää ruudukkoa, jossa laskeutuneiden palikkojen koordinaatit ovat tiedossa.
 
-Luokan *Field* metodit ovat seuraavat:
+Luokan ``Field`` metodit ovat seuraavat:
 * `get_field()` - palauttaa ruudukon taulukkona
 * `update(new_field)` - muuttaa nykyisen ruudukon parametrina annettuun ruudukkoon
 * `empty_filled_rows()` - palauttaa tyhjennettyjen rivien lukumäärän
 * `check_filled_rows()` - palauttaa True, jos ruudukosta löytyy täydennettyjä rivejä
 
+## Tietojen pysyväistallennus
+Tietojen pysyväistallenuksesta vastuussa on pakkauksen *repositories* luokka ``ScoreRepository``. Luokka käsittelee pelituloksia pelaajanimineen SQLite tietokannassa. Luokka noudattaa Repository-suunnittelumallia.
+
+Tietokannassa on taulu ``Scores``, jossa on sarakkeet ``name`` ja ``score``. Luokka ``ScoreRepository`` pystyy lisäämään uusia rivejä tauluun, hakea kymmenen riviä korkeimman pelituloksen mukaan sekä poistaa taulun ``Scores`` kaikki rivit.
+
+Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostossa ![.env](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/.env).
+
 ## Päätoiminnallisuudet
+
+### 
 
 ### Palikoiden liikkeet
 
