@@ -58,7 +58,7 @@ Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostoss
 
 #### Uuden pelikierroksen tuloksen tallentaminen
 
-![Sekvenssikaavio_pelituloksen_tallentaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-pelituloksen_tallentaminen_tietokantaan.png)
+![Sekvenssikaavio_pelituloksen_tallentaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-uuden_pelikierroksen_tuloksen_tallentaminen.png)
 
 ### Palikoiden liikkeet
 
