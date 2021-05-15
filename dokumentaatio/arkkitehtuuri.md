@@ -58,13 +58,15 @@ Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostoss
 
 #### Uuden pelikierroksen tuloksen tallentaminen
 
-Pelaajan painaessa Enter-näppäintä aloitusnäkymässä alkaa uusi pelikierros. Pelikierroksen päätyttyä pelaajalta kysytään pelaajanimi, jonka jälkeen sovellus palauttaa tuplen, jonka ensimmäisessä indeksissä on pelaajanimi ja toisessa pelitulos. Tuple annetaan syötteenä luokan ``ScoreRepository`` metodiin ``add_new_score``.
+Pelaajan painaessa Enter-näppäintä aloitusnäkymässä, alkaa uusi pelikierros. Pelikierroksen päätyttyä pelaajalta kysytään pelaajanimi, jonka jälkeen sovellus palauttaa tuplen, jonka ensimmäisessä indeksissä on pelaajanimi ja toisessa pelitulos. Tuple annetaan syötteenä luokan ``ScoreRepository`` metodiin ``add_new_score``.
 
 ![Sekvenssikaavio_pelituloksen_tallentaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-uuden_pelikierroksen_tuloksen_tallentaminen.png)
 
 ### Tietokannan tietojen poistaminen
 
+Pelaajan painaessa näppäintä 3 aloitusnäkymässä, näkymä siirtyy parhaimpien pelituloksien näkymään. Kun pelaaja painaa D-näppäintä tässä näkymässä, metodi ``handle_menu_events()`` palauttaa "DELETE", jonka jälkeen pelaajalta varmistetaan ennen tietojen poistamista tietokannasta. Jos pelaaja painaa Y-näppäintä, metodi ``ensure_deleting()`` palauttaa True ja tiedot poistetaan tietokannasta. Jos pelaaja painaa N-näppäintä, metodi ``ensure_deleting()`` palauttaa False ja tiedot pysyvät tallessa.
 
+![Sekvenssikaavio pelituloksien poistaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-poista_tiedot_tietokannasta.png)
 
 ### Palikoiden liikkeet
 
