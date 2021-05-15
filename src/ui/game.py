@@ -94,7 +94,8 @@ class Game:
             self._event_queue, self._renderer, self._gameloop)
 
         if score == "DELETE":
-            self._score_repository.delete_all()
+            if self._event_handler.ensure_deleting(self._renderer, self._event_queue):
+                self._score_repository.delete_all()
         elif score:
             self._score_repository.add_new_score(score[0], score[1])
 

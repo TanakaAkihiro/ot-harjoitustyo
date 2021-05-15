@@ -58,6 +58,22 @@ class EventHandler:
             elif event.type == pygame.QUIT:
                 exit()
 
+    def ensure_deleting(self, renderer, event_queue):
+        '''Varmistaa pelaajalta, haluaako pelaaja oikeasti poistaa tietokannan tiedot
+        '''
+        renderer.ensure_deleting()
+        
+        while True:
+            event = event_queue.get()
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_y:
+                    return True
+                if event.key == pygame.K_n:
+                    return False
+
+
     def handle_game_events(self, event_queue, renderer, field, block, emptied_rows):
         '''Käsittelee näppäimistön tapahtumia pelin aikana
 

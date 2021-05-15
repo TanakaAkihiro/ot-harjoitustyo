@@ -1,3 +1,4 @@
+from os import truncate
 import pygame
 
 
@@ -47,5 +48,26 @@ class HighScoresView:
         text_content = "Press 'D' to reset high scores"
         text = text_font.render(text_content, True, self._colors["Red"])
         self._screen.blit(text, (1000, 600))
+
+        pygame.display.flip()
+
+    def ensure(self):
+        self._screen.fill(self._colors["Black"])
+
+        text_font = pygame.font.SysFont(None, 48)
+        text_content = "Are you sure to delete high scores?"
+        text = text_font.render(text_content, True, self._colors["Red"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2, (self._height - rect[3])//2 - 200))
+
+        text_content = "Yes: Press 'Y'"
+        text = text_font.render(text_content, True, self._colors["White"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2 - 200,(self._height - rect[3])//2))
+
+        text_content = "No: Press 'N'"
+        text = text_font.render(text_content, True, self._colors["White"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width - rect[2])//2 + 200,(self._height - rect[3])//2))
 
         pygame.display.flip()

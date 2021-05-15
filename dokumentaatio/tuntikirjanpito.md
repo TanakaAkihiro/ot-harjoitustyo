@@ -52,4 +52,5 @@ päivä | aika(h) | mitä tein
 14.05 | 1 | Luokkien Block ja Gameloopin hiomista
 14.05 | 2 | Docstringsien hiomista
 15.05 | 2 | Käyttöohjeen ja arkitehtuuri-dokumentaatioiden muokkausta
-Yhteensä | 86 |
+15.05 | 1 | Pelaajalta varmistetaan ennen tietokannan tietojen poistamista
+Yhteensä | 87 |

@@ -82,6 +82,11 @@ class Renderer:
             self._screen, self._height*self._cell_size, self._width*self._cell_size, self._score_repository)
         self._current_view.render()
 
+    def ensure_deleting(self):
+        '''Varmistaa pelaajalta tietokannan tietojen poistamisen
+        '''
+        return self._current_view.ensure()
+
     def show_game_background(self):
         '''Piirtää valkoisen taustan ja ruudukon.
         '''
