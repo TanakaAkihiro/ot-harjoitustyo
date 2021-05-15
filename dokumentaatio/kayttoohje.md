@@ -8,6 +8,10 @@ Ennen ohjelman käynnistämistä, asenna riippuvuudet komennolla:
 ```
 poetry install
 ```
+Alusta sitten tietokanta komennolla:
+```
+poetry run invoke build
+```
 Käynnistä ohjelma komennolla:
 ```
 poetry run invoke start
