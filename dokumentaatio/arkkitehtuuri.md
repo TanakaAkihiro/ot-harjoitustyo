@@ -58,7 +58,13 @@ Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostoss
 
 #### Uuden pelikierroksen tuloksen tallentaminen
 
+Pelaajan painaessa Enter-näppäintä aloitusnäkymässä alkaa uusi pelikierros. Pelikierroksen päätyttyä pelaajalta kysytään pelaajanimi, jonka jälkeen sovellus palauttaa tuplen, jonka ensimmäisessä indeksissä on pelaajanimi ja toisessa pelitulos. Tuple annetaan syötteenä luokan ``ScoreRepository`` metodiin ``add_new_score``.
+
 ![Sekvenssikaavio_pelituloksen_tallentaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-uuden_pelikierroksen_tuloksen_tallentaminen.png)
+
+### Tietokannan tietojen poistaminen
+
+
 
 ### Palikoiden liikkeet
 
