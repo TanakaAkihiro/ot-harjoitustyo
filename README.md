@@ -24,6 +24,13 @@ poetry install
 
 
 ## Komentorivitoiminnot
+### Ohjelman alustaminen
+
+Alusta tietokanta ohjelman suoritusta varten komennolla:
+
+```
+poetry run invoke build
+```
 
 ### Ohjelman suorittaminen
 
