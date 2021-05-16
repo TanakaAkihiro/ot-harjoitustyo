@@ -9,7 +9,7 @@ class TestScoreRepository(unittest.TestCase):
     
     def test_add_new_score(self):
         score_repository.add_new_score("Pekka", 100)
-        score = score_repository.find_ranking()
+        score = score_repository.find_high_scores()
 
         self.assertEqual(len(score), 1)
         self.assertEqual((score[0][0], score[0][1]), ("Pekka", 100))
@@ -18,7 +18,7 @@ class TestScoreRepository(unittest.TestCase):
         score_repository.add_new_score("Mikko", 10)
         score_repository.add_new_score("Paavo", 1)
         score_repository.add_new_score("Tiitu", 50)
-        score = score_repository.find_ranking()
+        score = score_repository.find_high_scores()
 
         self.assertEqual(len(score), 3)
         self.assertEqual((score[0][0],score[0][1]), ("Tiitu", 50))
