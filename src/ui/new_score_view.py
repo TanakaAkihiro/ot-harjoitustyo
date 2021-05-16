@@ -28,6 +28,11 @@ class NewScoreView:
         rect = text.get_rect()
         self._screen.blit(text, ((self._width-rect[2])//2, self._height//2 - 100))
 
+        text_content = "Press 'Enter' when you are ready"
+        text = text_font.render(text_content, True, self._colors["White"])
+        rect = text.get_rect()
+        self._screen.blit(text, ((self._width-rect[2])//2,self._height//2 + 100))
+
         
         
         text_content = ""
