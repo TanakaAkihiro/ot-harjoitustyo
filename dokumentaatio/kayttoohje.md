@@ -54,3 +54,5 @@ Pelaaja voi tauottaa pelaamisen panamalla P-näppäintä
 ## Pelin loppuessa
 
 Pelaaja voi näppäillä nimen, jotta pistetulos tallennetaan tiedostoon.
+
+![Uusi pelitulos](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-uusi_pelitulos.png)
