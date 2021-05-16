@@ -20,6 +20,8 @@ Testauskattavuus on 98% ilman käyttöliittymä-paketin, hakemiston src tiedosto
 Luokan ``Game`` testaaminen on jätetty pois, sillä sen metodi ``start_screen`` on ikuinen silmukka, sillä metodi kutsuu itsensä, jonka takia testaamisesta tulee hankalaa.
 Lisäksi luokka ei käytä riippuvuuksien injektointia, jolloin metodin ``initialize`` testaaminen on myöskin hankalaa.
 
+Lukasta ``Gameloop`` jäi testaamatta sovelluksen sulkeutuminen.
+
 ## Järjestelmätestaus
 
 Järjestelmätestaus on suoritettu manuaalisesti.
