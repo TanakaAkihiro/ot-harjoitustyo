@@ -1,5 +1,4 @@
 import unittest
-from unittest import result
 from repositories.score_repository import score_repository
 
 

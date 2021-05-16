@@ -1,4 +1,4 @@
-from ui.game import game
+from services.game import game
 
 
 def main():
