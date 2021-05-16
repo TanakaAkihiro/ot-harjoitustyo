@@ -53,6 +53,14 @@ Tietokannassa on taulu ``Scores``, jossa on sarakkeet ``name`` ja ``score``. Luo
 Tietokannan tiedoston nimi määritellään projektin juurihakemiston tiedostossa ![.env](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/.env).
 
 ## Päätoiminnallisuudet
+### Näkymien väliset siirtymiset
+
+Sovelluksen käynnistäessä pelaaja on aina alkunäkymässä. Näkymien väliset siirtymiset alkavat luokasta ``Game``. 
+Jokaiselle näkymälle on oma luokkansa, joiden nimien perässä on aina sana "View". 
+Näkymät piirretään näytölle, kun luokka ``Game`` kutsuu luokan ``Renderer`` metodeja, jotka kutsuvat käyttäjän haluaman näkymän luokan metodeja.
+
+![Näkymien_siirto](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-sekvenssikaavio_nakymien_valiset_siirtymiset.png)
+
 
 ### Tietokannan tietojen käsittely
 
@@ -68,16 +76,27 @@ Pelaajan painaessa näppäintä 3 aloitusnäkymässä, näkymä siirtyy parhaimp
 
 ![Sekvenssikaavio pelituloksien poistaminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-poista_tiedot_tietokannasta.png)
 
-### Palikoiden liikkeet
+### Pelin aikaset tapahtumat
 
-#### Tippuminen
+#### Palikan tippuminen
 Palikka tippuu ruudukon verran alaspäin, kun palikan alapuolella ei ole muita palikoita tai ruudukon pohja sekä tapahtumasarja on tyhjä eli näppäimistöstä ei ole tullut käskyjä.
 
 ![Sekvenssikaavio_palikan_tippuminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Palikan%20tippuminen.png)
 
-#### Liikuttaminen
+#### Palikan liikuttaminen
 Palikan voi liikuttaa oikealle, vasemmalle tai alas, kun määrätyn suunnan kohteessa ei ole toista palikkaa tai seinää.
 
 Suunta syötetään tuplena: oikea (0, 1), vasen (0, -1), alas (1, 0).
 
 ![Palikan_liikuttaminen_oikealle](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/Palikan%20liikuttaminen%20oikealle.png)
+
+Palikan asennon muuttaminen tapahtuu samalla logiikalla. Erona on se, että syötteenä annetaan kokonaisluku tuplen sijasta: myötäpäivään 1, vastapäivään -1.
+
+#### Pisteen lisäys
+
+Kun ruudukossa havaitaan täytettyjä rivejä, ne poistetaan ruudukosta, poistetuista riveistä ylemmät rivit tuodaan yhden ruudun verran alaspäin, ruudukon ylimmät 
+tyhjät kohdat täytetään tyhjillä riveillä ja lopuksi lisätään poistettujen rivien määrä pelitulokseen.
+
+![Pisteiden lisäys](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-sekvenssikaavio_pisteen_lisays.png)
+
+
