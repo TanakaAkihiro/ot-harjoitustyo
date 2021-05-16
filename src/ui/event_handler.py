@@ -115,6 +115,8 @@ class EventHandler:
                 while True:
                     renderer.show_pause()
                     event = event_queue.get()
+                    if event.type == pygame.QUIT:
+                        sys.exit()
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_p:
                             renderer.show_game_background()
