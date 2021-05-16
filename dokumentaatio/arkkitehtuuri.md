@@ -104,3 +104,7 @@ tyhjät kohdat täytetään tyhjillä riveillä ja lopuksi lisätään poistettu
 Uuden palikan luodessa tarkistetaan, mahtuuko palikka ruudukkoon. Jos ei, peli päättyy.
 
 ![Pelin_loppuminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-pelin_loppuminen.png)
+
+## Ohjelman rakenteeseen jääneet heikkoudet
+
+* Ruudukko on määritelty tiedostossa ``game.py``, jonka olisi voinut toteuttaa tiedostosta lukemisena.
