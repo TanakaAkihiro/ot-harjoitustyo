@@ -53,4 +53,5 @@ päivä | aika(h) | mitä tein
 14.05 | 2 | Docstringsien hiomista
 15.05 | 2 | Käyttöohjeen ja arkitehtuuri-dokumentaatioiden muokkausta
 15.05 | 1 | Pelaajalta varmistetaan ennen tietokannan tietojen poistamista
-Yhteensä | 87 |
+16.05 | 5 | Dokumentaatioiden viimeistelyä ja koodien hiomista
+Yhteensä | 92 |
