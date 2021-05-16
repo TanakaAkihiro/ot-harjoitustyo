@@ -99,4 +99,8 @@ tyhjät kohdat täytetään tyhjillä riveillä ja lopuksi lisätään poistettu
 
 ![Pisteiden lisäys](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-sekvenssikaavio_pisteen_lisays.png)
 
+#### Pelin loppuminen
 
+Uuden palikan luodessa tarkistetaan, mahtuuko palikka ruudukkoon. Jos ei, peli päättyy.
+
+![Pelin_loppuminen](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/arkkitehtuuri-pelin_loppuminen.png)
