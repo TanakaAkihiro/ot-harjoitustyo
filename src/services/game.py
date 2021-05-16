@@ -35,7 +35,8 @@ CELL_SIZE = 70
 
 
 class Game:
-    '''Luokka, joka siirtelee sovelluksen näkymää alkunäytön, pelisääntöjen, peliohjeiden ja pelitilan välillä.
+    '''Luokka, joka siirtelee sovelluksen näkymää 
+    alkunäytön, pelisääntöjen, peliohjeiden ja pelitilan välillä.
 
     Attributes:
         height: Ruudukon korkeus
@@ -43,9 +44,7 @@ class Game:
         coefficient: Ruudukon kerroin
         display_height: Näytön korkeus
         display_width: Näytön leveys
-
         screen: Pygame-näyttö
-        
         score_repository: ScoreRepository-olio
         event_queue: EventQueue-olio
         event_handler: EventHandler-olio
@@ -57,12 +56,12 @@ class Game:
         '''
 
     def __init__(self, score_repository=default_score_repository):
-        '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
+        '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot 
+        näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
 
         Args:
             score_repository: Oletuksena ScoreRepository-olio
         '''
-
         self._height = len(FIELD)
         self._width = len(FIELD[0])
         self._coefficient = CELL_SIZE//2.5
@@ -79,14 +78,17 @@ class Game:
         self._event_handler = EventHandler()
         self._clock = Clock()
         self._renderer = Renderer(
-            self._screen, self._height, self._width, self._coefficient, CELL_SIZE, self._score_repository, self._clock, self._event_handler, self._event_queue)
+            self._screen, self._height, self._width, self._coefficient, CELL_SIZE,
+            self._score_repository, self._clock, self._event_handler, self._event_queue)
         self._field = Field(FIELD)
         self._block_setter = BlockSetter()
         self._gameloop = Gameloop(
             self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
 
     def start_screen(self):
-        '''Näyttää aloitusnäytön, siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella, käsittelee tietokannan tietoja, alustaa uuden ruudukon ja kutsuu itsensä lopuksi
+        '''Näyttää aloitusnäytön, siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella, 
+        käsittelee tietokannan tietoja, alustaa uuden ruudukon ja kutsuu itsensä lopuksi
+
         '''
         self._renderer.show_start_screen()
 
@@ -130,5 +132,6 @@ class Game:
         self._field = Field(FIELD)
         self._gameloop = Gameloop(
             self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
+
 
 game = Game()

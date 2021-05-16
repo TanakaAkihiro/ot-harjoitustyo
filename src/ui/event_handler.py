@@ -9,7 +9,7 @@ class EventHandler:
             event_queue: EventQueue-olio
             renderer: Renderer-olio
             gameloop: Gameloop-olio
-        
+
         Returns:
             score eli pelikierroksen tuloksen kokonaislukuna
             "DELETE", kun käyttäjä haluaa poistaa tietokannan tiedot
@@ -62,7 +62,7 @@ class EventHandler:
         '''Varmistaa pelaajalta, haluaako pelaaja oikeasti poistaa tietokannan tiedot
         '''
         renderer.ensure_deleting()
-        
+
         while True:
             event = event_queue.get()
             if event.type == pygame.QUIT:
@@ -72,7 +72,6 @@ class EventHandler:
                     return True
                 if event.key == pygame.K_n:
                     return False
-
 
     def handle_game_events(self, event_queue, renderer, field, block, emptied_rows):
         '''Käsittelee näppäimistön tapahtumia pelin aikana
@@ -143,7 +142,7 @@ class EventHandler:
         Args:
             text: Merkkijono, jonka pelaaja on näppäillyt tähän mennessä
             event_queue: EventQueue-olio
-        
+
         Returns:
             False, kun pelaaja on valmis
             text[:len(text)-1], eli palauttaa attribuuttina annetun merkkijonon ilman viimeistä merkkiä

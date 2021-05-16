@@ -84,7 +84,7 @@ class TestBlock(unittest.TestCase):
         self.block.move()
         self.block.move()
         self.block.move()
-        
+
         result = self.block.movable(self.field)
         self.assertFalse(result)
 
@@ -149,7 +149,6 @@ class TestBlock(unittest.TestCase):
         result = self.block.rotatable(self.field, 1)
         self.assertFalse(result)
 
-
     def test_return_true_if_the_block_is_rotatable_clockwise_and_block_orientation_is_3(self):
         self.block._block_orientation = 3
         self.shape = self.block._shapes[self.block._block_type][self.block._block_orientation]
@@ -180,7 +179,7 @@ class TestBlock(unittest.TestCase):
         self.block.move()
         self.block.move()
         result = self.block.rotatable(self.field, 1)
-        self.assertFalse(result)        
+        self.assertFalse(result)
 
     def test_return_true_if_the_block_is_rotatable_anti_clockwise(self):
         result = self.block.rotatable(self.field, -1)
@@ -213,7 +212,6 @@ class TestBlock(unittest.TestCase):
         result = self.block.check_game_over(self.field)
         self.assertFalse(result)
 
-
         self.field = [
             [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 1, 1, 0, 0, 0],
@@ -222,5 +220,3 @@ class TestBlock(unittest.TestCase):
         ]
         result = self.block.check_game_over(self.field)
         self.assertTrue(result)
-
-    

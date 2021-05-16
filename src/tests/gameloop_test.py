@@ -86,17 +86,18 @@ class StubBlockSetter:
     def set_new_block(self):
         return StubBlock()
 
+
 class StubField:
     def __init__(self, field):
         self.field = field
         self.x = 0
-    
+
     def get_field(self):
         return self.field
-    
+
     def update(self, new_field):
         self.field = new_field
-    
+
     def empty_filled_rows(self):
         return 1
 

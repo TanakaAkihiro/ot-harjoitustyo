@@ -7,6 +7,7 @@ class ScoreRepository:
     Attributes:
         connection: Yhteys tietokantatiedostoon
     '''
+
     def __init__(self, connection):
         '''
         Args:

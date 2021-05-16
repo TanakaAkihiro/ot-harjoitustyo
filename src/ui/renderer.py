@@ -118,5 +118,6 @@ class Renderer:
         Returns:
             Pelaajan nimen merkkijonona
         '''
-        self._current_view = NewScoreView(self._screen, self._height*self._cell_size, self._width*self._cell_size, score, self._clock, self._event_handler, self._event_queue)
+        self._current_view = NewScoreView(self._screen, self._height*self._cell_size, self._width *
+                                          self._cell_size, score, self._clock, self._event_handler, self._event_queue)
         return self._current_view.render()
