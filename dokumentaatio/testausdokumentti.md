@@ -32,4 +32,12 @@ Sovellusta on testattu eri konfiguraatioilla muokkaamalla ``.env``-tiedostoa.
 ### Toiminnallisuudet
 
 Sovellus noudattaa jokaista ![vaativuusmäärittelyssä](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) esitettyjä 
-päätoiminnallisuuden piirteitä.  
+päätoiminnallisuuden piirteitä. 
+
+Mahdollisia "ilkeitä" syötteitä on testattu, kuten näppäinten painelua, jotka eivät esiinny missään ohjeissa.
+
+## Sovellukseen jääneet laatuongelmat
+
+Sovellus ei näytä järkeviä virheilmoituksia seuraavissa tapauksissa:
+
+* kun sovellus käynnistetään ennen tietokannan alustamista komennolla ``poetry run invoke build``.
