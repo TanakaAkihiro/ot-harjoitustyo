@@ -31,12 +31,19 @@ Alkunäkymässä voit tehdä neljä toimintoa:
 Alkunäkymään voi palata painamalla R-näppäintä.
 
 **Pelisäännöt**
+
 ![Pelisäännöt](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-pelisaannot.png)
+
 **Pelin ohjeet**
+
 ![Peliohjeet](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-peliohjeet.png)
+
 **Vanhat pelitulokset**
+
 ![Vanhat pelitulokset](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-vanhat_tulokset.png)
+
 *Varmistus ennen tietojen poistamista*
+
 ![Varmistus](https://github.com/TanakaAkihiro/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/kayttoohje-varmistus.png)
 
 ## Pelin aikana
