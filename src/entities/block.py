@@ -65,7 +65,8 @@ class Block:
         self.column = 4
 
     def move(self, direction=None):
-        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole määritelty, palikka tippuu yhen ruudun verran alaspäin.
+        '''Liikuttaa palikan määrättyyn suuntaan. Jos suuntaa ei ole
+        määritelty, palikka tippuu yhen ruudun verran alaspäin.
 
         Args:
             direction: Määrittää laskeutuvan palikan suunnan, mihin liikkuu.
@@ -79,7 +80,7 @@ class Block:
             self.column += direction[1]
 
     def movable(self, field, direction=None):
-        '''Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan. Jos suuntaa ei ole määritelty, suuntana oletetaan yhden rivin verran alempaa suuntaa.
+        '''Tarkistaa, onko palikkaa mahdollista liikuttaa parametrilla annettuun suuntaan.
 
         Args:
             field: Field-olio

@@ -35,7 +35,7 @@ CELL_SIZE = 70
 
 
 class Game:
-    '''Luokka, joka siirtelee sovelluksen näkymää 
+    '''Luokka, joka siirtelee sovelluksen näkymää
     alkunäytön, pelisääntöjen, peliohjeiden ja pelitilan välillä.
 
     Attributes:
@@ -56,7 +56,7 @@ class Game:
         '''
 
     def __init__(self, score_repository=default_score_repository):
-        '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot 
+        '''Luokan konstruktori, joka alustaa kaikki tarvittavat oliot
         näytön näyttämistä ja uuden pelikierroksen aloittamista varten.
 
         Args:
@@ -78,17 +78,28 @@ class Game:
         self._event_handler = EventHandler()
         self._clock = Clock()
         self._renderer = Renderer(
-            self._screen, self._height, self._width, self._coefficient, CELL_SIZE,
-            self._score_repository, self._clock, self._event_handler, self._event_queue)
+            self._screen,
+            self._height,
+            self._width,
+            self._coefficient,
+            CELL_SIZE,
+            self._score_repository,
+            self._clock,
+            self._event_handler,
+            self._event_queue)
         self._field = Field(FIELD)
         self._block_setter = BlockSetter()
         self._gameloop = Gameloop(
-            self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
+            self._event_queue,
+            self._event_handler,
+            self._clock,
+            self._renderer,
+            self._field,
+            self._block_setter)
 
     def start_screen(self):
-        '''Näyttää aloitusnäytön, siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen perusteella, 
-        käsittelee tietokannan tietoja, alustaa uuden ruudukon ja kutsuu itsensä lopuksi
-
+        '''Näyttää aloitusnäytön, siirtyy muihin käyttöliittymän tiloihin käyttäjän syötteen
+        perusteella, käsittelee tietokannan tietoja, alustaa uuden ruudukon ja kutsuu itsensä
         '''
         self._renderer.show_start_screen()
 
@@ -131,7 +142,11 @@ class Game:
         ]
         self._field = Field(FIELD)
         self._gameloop = Gameloop(
-            self._event_queue, self._event_handler, self._clock, self._renderer, self._field, self._block_setter)
+            self._event_queue,
+            self._event_handler,
+            self._clock, self._renderer,
+            self._field,
+            self._block_setter)
 
 
 game = Game()
